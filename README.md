@@ -24,5 +24,12 @@ Things you may want to cover:
 * ...
 
 kkk
+<<<<<<< HEAD
 yuta
 koko
+=======
+aaa
+
+yosyaaaaaaaaa
+>>>>>>> 77cb05540962a0c77e0fcf454a5c8dbad63b2e39
+yuta
