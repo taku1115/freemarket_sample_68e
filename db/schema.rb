@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 2020_02_12_083105) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "category_id_id", null: false
-    t.bigint "shipping_id_id", null: false
-    t.bigint "bland_id_id", null: false
-    t.bigint "seller_user_id_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "shipping_id", null: false
+    t.bigint "bland_id", null: false
+    t.bigint "seller_user_id", null: false
     t.string "name", null: false
     t.text "text", null: false
     t.integer "condition", null: false
@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 2020_02_12_083105) do
     t.datetime "completed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bland_id_id"], name: "index_items_on_bland_id_id"
-    t.index ["category_id_id"], name: "index_items_on_category_id_id"
-    t.index ["seller_user_id_id"], name: "index_items_on_seller_user_id_id"
-    t.index ["shipping_id_id"], name: "index_items_on_shipping_id_id"
+    t.index ["bland_id"], name: "index_items_on_bland_id_id"
+    t.index ["category_id"], name: "index_items_on_category_id_id"
+    t.index ["seller_user_id"], name: "index_items_on_seller_user_id_id"
+    t.index ["shipping_id"], name: "index_items_on_shipping_id_id"
   end
 
-end
+en
