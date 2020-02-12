@@ -1,10 +1,10 @@
 class CreateItems < ActiveRecord::Migration[5.2]
   def change
     create_table :items do |t|
-      t.references :category_id , null: false, FK: true
-      t.references :shipping_id, null: false, FK: true
-      t.references :bland_id, null: false, FK: true
-      t.references :seller_user_id, null: false, FK: true
+      t.references :category , null: false, FK: true
+      t.references :shipping, null: false, FK: true
+      t.references :bland, null: false, FK: true
+      t.references :seller_user, null: false, FK: true
       t.string :name, null: false
       t.text :text, null: false
       t.integer :condition, null: false
