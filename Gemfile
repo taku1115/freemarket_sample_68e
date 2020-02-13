@@ -64,6 +64,7 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem 'rspec'
+  gem 'factory_bot_rails'
 end
 
 group :production do
@@ -75,3 +76,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'devise'
 gem 'pry-rails'
+gem 'erb2haml'
