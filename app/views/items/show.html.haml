@@ -28,9 +28,9 @@
           %th カテゴリー
           %td 
             = link_to "メンズ", "#", class: "show__brand"
-            <br>
+            %br
             = link_to "ジャケット/アウター", "#", class: "show__brand"
-            <br>
+            %br
             = link_to "ノーカラージャケット", "#", class: "show__brand"
         %tr
           %th ブランド
@@ -61,7 +61,9 @@
   .show__comments
     %textarea.show__comments__text
     .show__comments__notice
-      相手のことを考え丁寧なコメントをしましょう<br>不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      相手のことを考え丁寧なコメントをしましょう
+      %br
+      不快な言葉遣いなどは利用制限や退会処分となることがあります。
     .show__comments__btn 
       %button.show__comments__btn__i
         コメントする
