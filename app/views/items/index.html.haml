@@ -20,9 +20,9 @@
         = link_to "ブランド"
       .listright
         .listright-item1
-        = link_to "ログイン"
+        = link_to "ログイン",new_user_session_path(@new_user_session)
         .listright-item2
-        = link_to "新規会員登録"
+        = link_to "新規会員登録",new_user_registration_path
 
 .top-main
   .top-main__visual
@@ -124,7 +124,7 @@
   .productLists
     .productList
       
-      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class: "productList__img")
+      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class: "productList__img"),item_path(@items)
       .productList__body
         %h3.name product3
         .details
@@ -136,7 +136,7 @@
           %p (税込)
     .productList
       
-      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png",class: "productList__img")
+      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png",class: "productList__img"),item_path(@items)
       .productList__body
         %h3.name product2
         .details
@@ -148,7 +148,7 @@
           %p (税込)
     .productList
       
-      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png",class: "productList__img")
+      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png",class: "productList__img"),item_path(@items)
       .productList__body
         %h3.name product1
         .details
@@ -167,7 +167,8 @@
 
   .productLists
     .productList
-      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class:"productList__img")
+      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class:"productList__img"),item_path(@items)
+      .productList__body
       .productList__body
         %h3.name product3
         .details
@@ -179,7 +180,8 @@
           %p (税込)
 
     .productList
-      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class:"productList__img")
+      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class:"productList__img"),item_path(@items)
+      .productList__body
       .productList__body
         %h3.name product2
         .details
@@ -190,7 +192,8 @@
               0
           %p (税込)
     .productList
-      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", class:"productList__img")
+      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", class:"productList__img"),item_path(@items)
+      .productList__body
       .productList__body
         %h3.name product1
         .details
@@ -247,4 +250,4 @@
 .exhibision-btn
   .exhibision-btn__item
     出品する
-    = link_to image_tag("icon_camera.png", size: "54x54", class: "footer__icon") 
+    = link_to image_tag("icon_camera.png", size: "54x54", class: "footer__icon"),new_item_path(@new)
