@@ -1,30 +1,28 @@
-.top-wrapper
-  .topHeader
-    .headerInner
-      .mainheader
-        .icon
-          %a{:href => "#"}
-            %img{:src => "/assets/logo.png"}/
-        .search-box
-          %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
-            %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-            %input#searchInput.searchBox--input{:name => "key", :placeholder => "キーワードから探す"}/
-            %button{:type => "submit"}
-              %img{:src => "/assets/icon-search 1.png"}/
-              %input{:name => "authenticity_token", :type => "hidden", :value => "+Z5TWFAnhn4nyERwyq8tGeL24RWLf6d/DXQga++bhRyXAu8YJ5uoGBiBOvHimDNE1x9srYXVjnFOgiOPbUdCzQ=="}/
-      .nav
-        .listleft
-          .listleft-item1
-          %a
-            =link_to "カテゴリー"
-          .listleft-item2
-            =link_to "ブランド"
-        .listright
-          .listright-item1
-          %a
-            =link_to "ログイン"
-          .listright-item2
-            =link_to "新規会員登録"
+.topHeader
+  .headerInner
+    .mainheader
+      %h1.icon
+        = link_to image_tag("/assets/logo.png"),"＃"
+        
+      .search-box
+        %form{"accept-charset": "UTF-8", action: "#", method: "get"}
+          %input{name:  "utf8", type: "hidden", value: "✓"}/
+          %input#searchInput.searchBox--input{name: "key", placeholder: "キーワードから探す"}/
+          %button{type: "submit"}
+            .search-item
+              = image_tag '/assets/icon-search 1.png'
+            %input{name: "authenticity_token", type: "hidden", value: "+Z5TWFAnhn4nyERwyq8tGeL24RWLf6d/DXQga++bhRyXAu8YJ5uoGBiBOvHimDNE1x9srYXVjnFOgiOPbUdCzQ=="}/
+    .top-nav
+      .listleft
+        .listleft-item1
+        = link_to "カテゴリー"
+        .listleft-item2
+        = link_to "ブランド"
+      .listright
+        .listright-item1
+        = link_to "ログイン"
+        .listright-item2
+        = link_to "新規会員登録"
 
 .top-main
   .top-main__visual
@@ -37,10 +35,8 @@
         %br/
         フリマアプリです
       .top-main__visual__content__button
-        %a.aBtn{:href => "#"}
-          %img.apple{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"}/
-        %a.gBtn{:href => "#"}
-          %img.google{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg"}/
+        = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class: "apple")
+        = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg",class: "google")
 
   .top-main__merit
     .top-main__merit__title 
@@ -52,7 +48,7 @@
         .top-main__merit__kind__one__pic
           %span.top-main__merit__kind__one__pic__number1
             %p 1
-          %img.phone{:src => "/assets/pict-reason-01.jpg"}/
+          = image_tag "/assets/pict-reason-01.jpg",class: "phone"
         %h3.top-main__merit__kind__one__text
           %span.top-main__merit__kind__one__text__left 3分
           ですぐに出品
@@ -63,7 +59,7 @@
         .top-main__merit__kind__one__pic
           %span.top-main__merit__kind__one__pic__number1
             %p 2
-          %img.phone{:src => "/assets/pict-reason-02.jpg"}/
+          = image_tag "/assets/pict-reason-02.jpg",class: "phone"
         %h3.top-main__merit__kind__one__text
           %span.top-main__merit__kind__one__text__left シンプル
           で使いやすい
@@ -74,7 +70,7 @@
         .top-main__merit__kind__one__pic
           %span.top-main__merit__kind__one__pic__number1
             %p 3
-          %img.phone{:src => "/assets/pict-reason-03.jpg"}/
+          = image_tag "/assets/pict-reason-03.jpg",class: "phone"
         %h3.top-main__merit__kind__one__text
           手数料
           %span.top-main__merit__kind__one__text__left 業界最安
@@ -92,124 +88,118 @@
         %br/
         ほしかったあの商品に出会えるかもしれません。
       .top-main__visual2__content__button
-        %a.aBtn{:href => "#"}
-          %img.apple2{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"}/
-        %a.gBtn{:href => "#"}
-          %img.google2{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg"}/
+        = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class: "apple2")
+        = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg",class: "google2")
 
 .character
 .heads FURIMAの特徴
 .convenients
   .convenient
     .convenient__img
-      %img.orz{:src => "/assets/icon-01.png"}/
+      = image_tag "/assets/icon-01.png",class: "orz"
     %h3.convenient__subtitle 簡単に売り買いできる
     %p.convenient__detail
       スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
   .convenient
     .convenient__img
-      %img.orz{:src => "/assets/icon-03.png"}/
+      = image_tag "/assets/icon-03.png",class: "orz"
     %h3.convenient__subtitle 売上金は即日振込みに対応
     %p.convenient__detail
       午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
   .convenient
     .convenient__img
-      %img.orz{:src => "/assets/icon-04.png"}/
+      = image_tag "/assets/icon-04.png",class: "orz"
     %h3.convenient__subtitle 様々な支払いに対応
     %p.convenient__detail
       お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-%section.pickupContainer
+
+.pickupcategory
   %h2.heads2 ピックアップカテゴリー
   .productbox
   .productbox__Head
-    %a.newgoods{:href => "#"}
-      %h3.title 新規投稿商品
+    = link_to "新規投稿商品",class:"name"
+    
+    
+
   .productLists
     .productList
-      %a{:href => "/products/3"}
-        %figure.productList__img
-          %img.orz1{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
-        .productList__body
-          %h3.name product3
-          .details
-            %ul
-              %li 30000円
-              %li
-                %i.fa.fa-star.likeIcon
-                0
-            %p (税込)
+      
+      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class: "productList__img")
+      .productList__body
+        %h3.name product3
+        .details
+          %ul
+            %li 30000円
+            %li
+              %i.fa.fa-star.likeIcon
+              0
+          %p (税込)
     .productList
-      %a{:href => "/products/2"}
-        %figure.productList__img
-          %img.orz1{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
-        .productList__body
-          %h3.name product2
-          .details
-            %ul
-              %li 20000円
-              %li
-                %i.fa.fa-star.likeIcon
-                0
-            %p (税込)
+      
+      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png",class: "productList__img")
+      .productList__body
+        %h3.name product2
+        .details
+          %ul
+            %li 20000円
+            %li
+              %i.fa.fa-star.likeIcon
+              0
+          %p (税込)
     .productList
-      %a{:href => "/products/1"}
-        %figure.productList__img
-          %img.orz1{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
-        .productList__body
-          %h3.name product1
-          .details
-            %ul
-              %li 10000円
-              %li
-                %i.fa.fa-star.likeIcon
-                0
-            %p (税込)
+      
+      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png",class: "productList__img")
+      .productList__body
+        %h3.name product1
+        .details
+          %ul
+            %li 10000円
+            %li
+              %i.fa.fa-star.likeIcon
+              0
+          %p (税込)
+
   .pickupContainer1
   %h2.heads3 ピックアップブランド
   .productbox
   .productbox__Head
-    %a.archive{:href => "#"}
-      %h3.title アーカイバ
+    = link_to "アーカイバ"
+
   .productLists
     .productList
-      %a{:href => "/products/3"}
-        %figure.productList__img
-          %img.orz1{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
-        .productList__body
-          %h3.name product3
-          .details
-            %ul
-              %li 30000円
-              %li
-                %i.fa.fa-star.likeIcon
-                0
-            %p (税込)
+      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class:"productList__img")
+      .productList__body
+        %h3.name product3
+        .details
+          %ul
+            %li 30000円
+            %li
+              %i.fa.fa-star.likeIcon
+              0
+          %p (税込)
+
     .productList
-      %a{:href => "/products/2"}
-        %figure.productList__img
-          %img.orz1{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
-        .productList__body
-          %h3.name product2
-          .details
-            %ul
-              %li 20000円
-              %li
-                %i.fa.fa-star.likeIcon
-                0
-            %p (税込)
+      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class:"productList__img")
+      .productList__body
+        %h3.name product2
+        .details
+          %ul
+            %li 20000円
+            %li
+              %i.fa.fa-star.likeIcon
+              0
+          %p (税込)
     .productList
-      %a{:href => "/products/1"}
-        %figure.productList__img
-          %img.orz1{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
-        .productList__body
-          %h3.name product1
-          .details
-            %ul
-              %li 10000円
-              %li
-                %i.fa.fa-star.likeIcon
-                0
-            %p (税込)
+      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", class:"productList__img")
+      .productList__body
+        %h3.name product1
+        .details
+          %ul
+            %li 10000円
+            %li
+              %i.fa.fa-star.likeIcon
+              0
+          %p (税込)
 
   
 .top-banner
@@ -217,10 +207,8 @@
     %h2.top-banner__in__title だれでもかんたん、人生を変えるフリマアプリ
     %p.top-banner__in__text 今すぐ無料ダウンロード！
     .top-banner__in__icon
-      %a.aBtn{:href => "#"}
-        %img.apple3{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"}/
-      %a.gBtn{:href => "#"}
-        %img.google3{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg"}/
+      = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class: "apple3")
+      = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg",class: "google3")
 
 .footer
   %ul.contents
@@ -228,36 +216,35 @@
       %h2.content__head FURIMAについて
       %ul
         %li
-          %a{:href => "#"} 会社概要（運営会社）
+          = link_to "会社概要（運営会社)"
         %li
-          %a{:href => "#"} プライバシーポリシー
+          = link_to "プライバシーポリシー"
         %li
-          %a{:href => "#"} FURIMA利用規約
+          = link_to "FURIMA利用規約"
         %li
-          %a{:href => "#"} ポイントに関する特約
+          = link_to "ポイントに関する特約"
     %li.content
       %h2.content__head FURIMAを見る
       %ul
         %li
-          %a{:href => "#"} カテゴリー一覧
+          = link_to "カテゴリー一覧"
         %li
-          %a{:href => "#"} ブランド一覧
+          = link_to "ブランド一覧"
     %li.content
       %h2.content__head ヘルプ＆ガイド
       %ul
         %li
-          %a{:href => "#"} FURIMAガイド
+          = link_to "FURIMAガイド"
         %li
-          %a{:href => "#"} FURIMAロゴ利用ガイドライン
+          = link_to "FURIMAロゴ利用ガイドライン"
         %li
-          %a{:href => "#"} お知らせ
+          = link_to "お知らせ"
   .footer__logo
-    %a{:href => "#"}
-      %img.orz2{:src => "/assets/logo-white.png"}/
+    = link_to image_tag("/assets/logo-white.png",class: "orz2")
   %p © FURIMA
 
-%a(href="#")
-  .exhibision-btn
-    .exhibision-btn__item
-      出品する
-      = image_tag "icon_camera.png", size: "54x54", class: "footer__icon"
+
+.exhibision-btn
+  .exhibision-btn__item
+    出品する
+    = link_to image_tag("icon_camera.png", size: "54x54", class: "footer__icon") 
