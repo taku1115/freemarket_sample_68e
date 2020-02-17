@@ -1,4 +1,80 @@
-商品詳細ページ
+.shows
+  .show
+    .show__top
+      product2
+    .show__image
+      = image_tag "showmain.png", size: "560x346"
+    .show__images
+      %ul
+        %li  
+          = image_tag "showlist1", size: "140x87"
+        %li
+          = image_tag "showlist2", size: "140x87"
+        %li
+          = image_tag "showlist3", size: "140x87"
+    .show__price
+      %span ¥20000 
+    .show__tax
+      %span（税込)
+      %span 送料込み
+    .show__name
+      product2
+    .show__details
+      %table
+        %tr
+          %th 出品者
+          %td hoge
+        %tr
+          %th カテゴリー
+          %td 
+            = link_to "メンズ", "#", class: "show__brand"
+            %br
+            = link_to "ジャケット/アウター", "#", class: "show__brand"
+            %br
+            = link_to "ノーカラージャケット", "#", class: "show__brand"
+        %tr
+          %th ブランド
+          %td オリジナル
+        %tr
+          %th サイズ
+          %td 大きめ
+        %tr
+          %th 商品状態
+          %td 新品/未使用
+        %tr
+          %th 発送料の負担
+          %td 着払い（出品者負担）
+        %tr
+          %th 発送元の地域
+          %td 
+            = link_to "青森", "#", class: "show__area"
+        %tr
+          %th 発送日の目安
+          %td 三日以内
+    .show__option
+      %ul
+        %li
+          = link_to "★ お気に入り 1", "#", class: "show__option__like"
+        %li
+          = link_to "不適切な商品の通報", "#", class: "show__option__report"
 
-
-かきくけこ
+  .show__comments
+    %textarea.show__comments__text
+    .show__comments__notice
+      相手のことを考え丁寧なコメントをしましょう
+      %br
+      不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .show__comments__btn 
+      %button.show__comments__btn__i
+        コメントする
+  .show__bottom
+    .show__bottom__next
+      = link_to "<前の商品", "#", class: "show__bottom__next__left"
+      = link_to "後ろの商品>", "#", class: "show__bottom__next__right"
+    .show__bottom__lists
+      = link_to "メンズをもっと見る", "#", class: "show__bottom__lists__list"
+ 
+  .exhibision-btn
+    .exhibision-btn__item
+      出品する
+      = link_to image_tag("icon_camera.png", size: "54x54", class: "footer__icon") 
