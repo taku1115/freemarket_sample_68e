@@ -1,0 +1,44 @@
+.background 
+  .mypage
+    .mypage-side
+      %ul.mypage-side__box
+        %li
+          = link_to "/users/show" do
+            %span マイページ
+            %span >
+        %li
+          = link_to "/items/new" do
+            %span 出品する
+            %span >
+        %li
+          = link_to "#" do
+            %span ガイド
+            %span >
+        %li
+          = link_to "#" do
+            %span お問い合わせ
+            %span >
+      %h3.mypage-side__section-title
+        設定
+      %ul.mypage-side__box
+        %li
+          = link_to "/users/card" do
+            %span 支払い方法
+            %span >
+        %li
+          = link_to "/users/logout" do
+            %span ログアウト
+            %span >
+    .card
+      .card__top
+        %h2 支払い方法
+      .card__center
+        %h3 クレジットカード一覧
+        = link_to "#" do
+          .add-card-btn
+            %span クレジットカードを追加する
+      .card__bottom
+        = link_to "#" do
+          %span 支払い方法について
+          %span ＞
+          
