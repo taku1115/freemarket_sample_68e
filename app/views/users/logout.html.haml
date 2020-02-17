@@ -30,6 +30,6 @@
             %span ログアウト
             %span >
     .logout
-      = link_to '#' do
+      = link_to destroy_user_session_path, meshod: :delete do
         .logout__btn
           %span ログアウト
