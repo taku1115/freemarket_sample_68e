@@ -1,0 +1,35 @@
+.background 
+  .mypage
+    .mypage-side
+      %ul.mypage-side__box
+        %li
+          = link_to "/users/show" do
+            %span マイページ
+            %span >
+        %li
+          = link_to "/items/new" do
+            %span 出品する
+            %span >
+        %li
+          = link_to "#" do
+            %span ガイド
+            %span >
+        %li
+          = link_to "#" do
+            %span お問い合わせ
+            %span >
+      %h3.mypage-side__section-title
+        設定
+      %ul.mypage-side__box
+        %li
+          = link_to "/users/card" do
+            %span 支払い方法
+            %span >
+        %li
+          = link_to "/users/logout" do
+            %span ログアウト
+            %span >
+    .logout
+      = link_to '#' do
+        .logout__btn
+          %span ログアウト
