@@ -2,7 +2,7 @@
   .headerInner
     .mainheader
       %h1.icon
-        = link_to image_tag("/assets/logo.png"),"＃"
+        = link_to image_tag("logo.png"),"＃"
         
       .search-box
         %form{"accept-charset": "UTF-8", action: "#", method: "get"}
@@ -10,7 +10,7 @@
           %input#searchInput.searchBox--input{name: "key", placeholder: "キーワードから探す"}/
           %button{type: "submit"}
             .search-item
-              = image_tag '/assets/icon-search 1.png'
+              = image_tag 'icon-search 1.png'
             %input{name: "authenticity_token", type: "hidden", value: "+Z5TWFAnhn4nyERwyq8tGeL24RWLf6d/DXQga++bhRyXAu8YJ5uoGBiBOvHimDNE1x9srYXVjnFOgiOPbUdCzQ=="}/
     .top-nav
       .listleft
@@ -48,7 +48,7 @@
         .top-main__merit__kind__one__pic
           %span.top-main__merit__kind__one__pic__number1
             %p 1
-          = image_tag "/assets/pict-reason-01.jpg",class: "phone"
+          = image_tag "pict-reason-01.jpg",class: "phone"
         %h3.top-main__merit__kind__one__text
           %span.top-main__merit__kind__one__text__left 3分
           ですぐに出品
@@ -59,7 +59,7 @@
         .top-main__merit__kind__one__pic
           %span.top-main__merit__kind__one__pic__number1
             %p 2
-          = image_tag "/assets/pict-reason-02.jpg",class: "phone"
+          = image_tag "pict-reason-02.jpg",class: "phone"
         %h3.top-main__merit__kind__one__text
           %span.top-main__merit__kind__one__text__left シンプル
           で使いやすい
@@ -70,7 +70,7 @@
         .top-main__merit__kind__one__pic
           %span.top-main__merit__kind__one__pic__number1
             %p 3
-          = image_tag "/assets/pict-reason-03.jpg",class: "phone"
+          = image_tag "pict-reason-03.jpg",class: "phone"
         %h3.top-main__merit__kind__one__text
           手数料
           %span.top-main__merit__kind__one__text__left 業界最安
@@ -96,19 +96,19 @@
 .convenients
   .convenient
     .convenient__img
-      = image_tag "/assets/icon-01.png",class: "orz"
+      = image_tag "icon-01.png",class: "orz"
     %h3.convenient__subtitle 簡単に売り買いできる
     %p.convenient__detail
       スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
   .convenient
     .convenient__img
-      = image_tag "/assets/icon-03.png",class: "orz"
+      = image_tag "icon-03.png",class: "orz"
     %h3.convenient__subtitle 売上金は即日振込みに対応
     %p.convenient__detail
       午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
   .convenient
     .convenient__img
-      = image_tag "/assets/icon-04.png",class: "orz"
+      = image_tag "icon-04.png",class: "orz"
     %h3.convenient__subtitle 様々な支払いに対応
     %p.convenient__detail
       お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
@@ -240,7 +240,7 @@
         %li
           = link_to "お知らせ"
   .footer__logo
-    = link_to image_tag("/assets/logo-white.png",class: "orz2")
+    = link_to image_tag("logo-white.png",class: "orz2")
   %p © FURIMA
 
 
