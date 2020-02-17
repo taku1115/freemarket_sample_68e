@@ -32,7 +32,7 @@
     .mypage-main
       .mypage-main__top
         .icon
-          %img(src="https://picsum.photos/180/180")/
+          = image_tag 'https://picsum.photos/180/180'
         .name
           %p カレントユーザーのname
         .score
@@ -49,12 +49,9 @@
           %span 😩
           %span 0  
       .mypage-main__sns
-        = link_to "#" do
-          %img(src="/assets/facebook.png" alt="")
-        = link_to "#" do
-          %img(src="/assets/twitter.jpg" alt="")
-        = link_to "#" do
-          %img(src="/assets/LINE_APP.png" alt="")
+        = link_to image_tag('/assets/facebook.png'),"#"
+        = link_to image_tag('/assets/twitter.jpg'),"#"
+        = link_to image_tag('/assets/LINE_APP.png'),"#"
       .mypage-main__index
         %p.index-title この出品者の商品
         以下、部分テンプレート
