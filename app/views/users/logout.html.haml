@@ -1,5 +1,6 @@
 .background 
   .mypage
+    = render 'tophead'
     .mypage-side
       %ul.mypage-side__box
         %li
@@ -31,3 +32,6 @@
             %span >
     .logout
       = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logout__btn'
+  .mypage__footer
+    = render 'topfooter'
+    
