@@ -106,7 +106,6 @@ Things you may want to cover:
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|path	   |text  |null: false|
 |name	   |string|null: false|
 |ancestry|string|
 ### Aaocciation
@@ -116,7 +115,6 @@ Things you may want to cover:
 ## sizeテーブル
 |Column|Type|Options|
 |------|----|-------|
-|path    |text  |null: false|
 |kind	   |string|null: false|
 |ancestry|string|
 ### Asociation
@@ -127,10 +125,9 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |category_id|references|null: false, FK: true|
-|brand_id	  |references|null: false, FK: true|
 |name	      |string	   |null: false|
 ### Association
-- has_many :item
+- has_many :items
 - belongs_to :category
 
 
