@@ -1,9 +1,5 @@
 .user-container
-  .user-header
-    .user-header__logo
-      = link_to root_path do
-        = image_tag 'logo.png', class: 'user-logo-img'
-
+  = render 'newhead'
   .user-main
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = render "devise/shared/error_messages", resource: resource
@@ -36,5 +32,4 @@
         %br/
         = link_to "パスワードをお忘れの方" ,"#"
   .user-footer
-    = link_to root_path do
-      = image_tag 'logo.png', class: 'user-underlogo-img'
+    = render 'newfooter'

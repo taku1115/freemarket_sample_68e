@@ -1,5 +1,7 @@
+
 .background 
   .mypage
+    = render "tophead"
     .mypage-side
       %ul.mypage-side__box
         %li
@@ -54,4 +56,5 @@
         = link_to image_tag('LINE_APP.png'),"#"
       .mypage-main__index
         %p.index-title この出品者の商品
-        以下、部分テンプレート
+  .mypage__footer 
+    =render "topfooter"  
