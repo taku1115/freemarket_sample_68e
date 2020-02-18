@@ -1,4 +1,5 @@
 .shows
+  = render 'newhead'
   .show
     .show__top
       product2
@@ -73,8 +74,10 @@
       = link_to "後ろの商品>", "#", class: "show__bottom__next__right"
     .show__bottom__lists
       = link_to "メンズをもっと見る", "#", class: "show__bottom__lists__list"
- 
+
   .exhibision-btn
     .exhibision-btn__item
       出品する
-      = link_to image_tag("icon_camera.png", size: "54x54", class: "footer__icon") 
+      = link_to image_tag("icon_camera.png", size: "54x54", class: "footer__icon")
+  .exhibision-footer
+    = render "showfooter"
