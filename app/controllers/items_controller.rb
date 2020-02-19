@@ -14,6 +14,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    item = Item.find(1)
+    @item = item
   end
 
   private
