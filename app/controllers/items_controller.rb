@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   
   def index
     @items = Item.all
+    @item_images = ItemImage.all
   end
 
   def new
@@ -19,5 +20,4 @@ class ItemsController < ApplicationController
   def items_params
     params.require(:item).permit(:name, :text, :condition, :price, :trading_status, :completed_at)
   end
-
 end
