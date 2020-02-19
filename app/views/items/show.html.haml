@@ -2,7 +2,7 @@
   = render 'newhead'
   .show
     .show__top
-      product2
+      = @item.name
     .show__image
       = image_tag "showmain.png", size: "560x346"
     .show__images
@@ -14,17 +14,21 @@
         %li
           = image_tag "showlist3", size: "140x87"
     .show__price
-      %span ¥20000 
+      %span 
+      ¥
+      = @item.price
+      円
     .show__tax
       %span（税込)
       %span 送料込み
-    .show__name
-      product2
+    .show__text
+      = simple_format(@item.text)
     .show__details
       %table
         %tr
           %th 出品者
-          %td hoge
+          %td 
+            = @item.buyer_id
         %tr
           %th カテゴリー
           %td 
