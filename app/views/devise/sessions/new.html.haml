@@ -1,0 +1,35 @@
+.user-container
+  = render 'newhead'
+  .user-main
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .user-main__field
+        %p アカウントをお持ちでない方はこちら
+        = link_to "新規会員登録",new_user_registration_path, class: 'new-register'
+      .user-main__field
+        = f.submit "Facebookでログイン", class: 'f-book-in'
+      .user-main__field
+        = f.submit "Googleでログイン", class: 'google-in'
+      .user-main__field
+        = f.email_field :email, autocomplete: "email", class:'user-field', placeholder: "メールアドレス"
+      .user-main__field
+        - if @minimum_password_length
+          %em
+        %br/
+        = f.password_field :password, class:'user-field', autocomplete: "new-password", placeholder: "パスワード"
+        .field
+      .user-main__field
+        = f.label :パスワード再確認, class:'user-form-group'
+        %br/
+        = f.password_field :password_confirmation, class:'user-field', autocomplete: "new-password"
+        %br/
+      .user-main__field
+        = check_box_tag :sample, class: 'user-check'
+        = label_tag :sample, "私はロボットではありません"
+        %br/
+      .user-main__actions 
+        = f.submit "ログイン", class: "user-field-next"
+        %br/
+        = link_to "パスワードをお忘れの方" ,"#"
+  .user-footer
+    = render 'newfooter'

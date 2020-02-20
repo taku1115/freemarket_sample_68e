@@ -1,0 +1,108 @@
+.user-container {
+  background-color: #f5f5f5;
+  height: 100%;
+  width: 100%;
+  
+
+  .user-header {
+    height: 130px;
+    width: 100%;
+    padding-left: 600px;
+  }
+
+  .user-main {
+    background-color: #fff;
+    text-align: center;
+    width: 700px;
+    height: 100%;
+    margin: 0 auto;
+    line-height: 2;
+    padding: 40px 40px 65px;
+
+    span {
+      color: red;
+      margin-left: 10px;
+    }
+
+    .f-book-in {
+      width: 340px;
+      height: 45px;
+      background-color: #385185;
+      color: white;
+      margin-top: 20px;
+    }
+
+    .google-in {
+      width: 340px;
+      height: 45px;
+      background-color: #f5f5f5;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      height: 100px;
+      width: 700px;
+      font-size: 25px;
+      font-weight: 400;
+      text-align: center;
+      padding-top: 25px;
+    }
+
+    h3 {
+      color: gray;
+    }
+
+    h4 {
+      font-size: 20px;
+    }
+
+    &__field {
+      margin-top: 20px;
+
+      .new-register {
+        width: 340px;
+        height: 45px;
+        background-color: #0099e8;
+        color: white;
+        line-height: 40px;
+        padding: 10px 120px 10px 120px;
+        text-decoration: none;
+      }
+    }
+    &__actions {
+      margin: 20px 0 50px 0;
+    }
+  }
+}
+
+.user-field {
+  width: 350px;
+  height: 40px;
+}
+
+.user-field2 {
+  height: 40px;
+}
+
+
+
+.user-field-next {
+  width: 340px;
+  height: 60px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #3ccace;
+  border: 1px solid;
+  margin-bottom: 20px;
+}
+
+.user-logo-img {
+  height: 50px;
+  width: 185px;
+  margin-top: 25px;
+}
+
+.user-underlogo-img {
+  height: 65px;
+  width: 80px;
+}

@@ -1,0 +1,60 @@
+
+.background 
+  .mypage
+    = render "tophead"
+    .mypage-side
+      %ul.mypage-side__box
+        %li
+          = link_to "/users/show" do
+            %span マイページ
+            %span >
+        %li
+          = link_to "/items/new" do
+            %span 出品する
+            %span >
+        %li
+          = link_to "#" do
+            %span ガイド
+            %span >
+        %li
+          = link_to "#" do
+            %span お問い合わせ
+            %span >
+      %h3.mypage-side__section-title
+        設定
+      %ul.mypage-side__box
+        %li
+          = link_to "/users/card" do
+            %span 支払い方法
+            %span >
+        %li
+          = link_to "/users/logout" do
+            %span ログアウト
+            %span >
+    .mypage-main
+      .mypage-main__top
+        .icon
+          = image_tag 'https://picsum.photos/180/180'
+        .name
+          %p カレントユーザーのname
+        .score
+          %span 評価68
+          %span 出品数100
+      .mypage-main__status
+        .good
+          %span 😄
+          %span 60
+        .normal
+          %span 😏
+          %span 8
+        .bad        
+          %span 😩
+          %span 0  
+      .mypage-main__sns
+        = link_to image_tag('facebook.png'),"#"
+        = link_to image_tag('twitter.jpg'),"#"
+        = link_to image_tag('LINE_APP.png'),"#"
+      .mypage-main__index
+        %p.index-title この出品者の商品
+  .mypage__footer 
+    =render "topfooter"  
