@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     @item_images = ItemImage.all
+    @parents =Category.all.order("id ASC").limit(2)
   end
 
   def new
@@ -25,6 +26,15 @@ class ItemsController < ApplicationController
     @item = item
     @item_images = ItemImage.find(params[:id])
   end
+
+  def search
+    respond_to do |format|
+      format.html
+      format.json do
+        @children = Category.find(params[:parent_id].children)
+    end
+  end
+end
 
   private
   def items_params
