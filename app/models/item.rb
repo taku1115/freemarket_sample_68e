@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  has_one :shipping
+  accepts_nested_attributes_for :shipping
   belongs_to :saler, class_name: "User"
   belongs_to :buyer, class_name: "User"
   belongs_to :user
