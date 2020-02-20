@@ -10,12 +10,13 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(items_params)
+    Item.create(items_params) 
   end
 
   def show
-    item = Item.find(1)
+    item = Item.find(params[:id])
     @item = item
+    @item_images = ItemImage.find(params[:id])
   end
 
   private

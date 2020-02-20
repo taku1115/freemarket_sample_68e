@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def show
+    params.require(:user).permit(:image)
   end 
 
   def logout
