@@ -11,8 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2020_02_19_064135) do
-ActiveRecord::Schema.define(version: 2020_02_19_031632) do
-ActiveRecord::Schema.define(version: 2020_02_19_062946) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "category_id", null: false
@@ -82,6 +80,14 @@ ActiveRecord::Schema.define(version: 2020_02_19_062946) do
     t.index ["shipping_id"], name: "index_items_on_shipping_id"
   end
 
+  create_table "points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "score", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_points_on_user_id"
+  end
+
   create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.boolean "fee_burden", null: false
     t.integer "area", null: false
@@ -90,14 +96,6 @@ ActiveRecord::Schema.define(version: 2020_02_19_062946) do
     t.datetime "updated_at", null: false
     t.bigint "item_id", null: false
     t.index ["item_id"], name: "index_shippings_on_item_id"
-  end
-
-  create_table "points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.integer "score", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_points_on_user_id"
   end
 
   create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
