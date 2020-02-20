@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def show
-    params.require(:user).permit(:image)
+    @items = Item.all
+    @item_images = ItemImage.all
   end 
 
   def logout
