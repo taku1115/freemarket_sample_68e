@@ -1,3 +1,170 @@
-商品出品ページ
+.exhibition
+  .exhibition-header
+    = render 'newhead'
+  .exhibition-main
+    .exhibition-main__wrapper
+      %h1.gorira 商品の情報を入力
+      = form_for @item do |f|
+        .exhibition-main__image
+          .exhibition-main__image__top
+            %span.font 出品画像 
+            %span.botan 必須
+            %p.max 最大１０枚までアップロード出来ます
+            %p
+          .exhibition-main__image__into__camera
+            %label{class: "input-box__image"}
+              -# = f.file_field method, {}.serect(type="file")
+              .exhibition-main__image__into__camera__into
+                .wide
+                  %span.iine ドラッグ&ドロップ またはクリックしてファイルをアップロード
+      .exhibition-main__entry
+        %span.font 商品名
+        %span.botan 必須
+        %p.butween
+        %input#user-search-field.chat-group-form__input{:placeholder => "40文字まで", :type => "text", :style => "width:96%;padding:10px 16px 8px;font-size: 16px"}/
+        %p.top
+        %span.font 商品の説明
+        %span.botan 必須
+        %p.butween
+        %textarea.wide{:cols => "60", :name => "example2", :rows => "6", :placeholder => "商品の説明（必須1,000文字以内) (色、素材、重さ、定価、注意点など)                                                       例）2010年頃に385万円で購入したものです。まあ買いたければ買ったら? ", :type => "textarea",:style => "width:98%;"} 
+        %p.iine
+      .exhibition-main__details
+        .exhibition-main__details__left
+          %span.title 商品の詳細
+        .exhibition-main__details__right
+          %p
+          %span.font カテゴリー
+          %span.botan 必須
+          %p.top
+          %select.category{:name => "pref"}
+            %option{:value => ""}  ---
+            %option{:value => "選択肢1"} レディース
+            %option{:value => "選択肢2"} メンズ
+            %option{:value => "選択肢3"} ベビー・キッズ
+            %option{:value => "選択肢4"} インテリア・住まい・小物
+            %option{:value => "選択肢5"} 本・音楽・ゲーム
+            %option{:value => "選択肢6"} おもちゃ・ホビー・グッズ
+            %option{:value => "選択肢7"} コスメ・香水・美容
+            %option{:value => "選択肢8"} 家電・スマホ・カメラ
+            %option{:value => "選択肢9"} スポーツ・レジャー
+            %option{:value => "選択肢10"} ハンドメイド
+            %option{:value => "選択肢11"} チケット
+            %option{:value => "選択肢12"} 自動車・オートバイ
+            %option{:value => "選択肢13"} その他
+          %p.bottom
+          %span.font 商品の状態
+          %span.botan 必須
+          %p.top
+          %select.stetas{:name => "pref"}
+            %option{:value => ""}  ---
+            %option{:value => "選択肢1"} 新品、未使用
+            %option{:value => "選択肢2"} 未使用に近い
+            %option{:value => "選択肢3"} 目立った傷や汚れ無し
+            %option{:value => "選択肢4"} やや傷や汚れあり
+            %option{:value => "選択肢5"} 傷や汚れあり
+      .exhibision-main__shipping
+        = form_for @shipping do |f|
+          .exhibision-main__shipping__left
+          %span 配送について
+          %a.form-question{:href => "/jp/help_center/article/68/", :target => "_blank"} ?
+          %p
+        .exhibision-main__shipping__right
+          %span.font 配送料の負担
+          %span.botan 必須
+          %p.top
 
-アイウエオ
+          %select.hutan{:name => "pref"}
+            %option{:value => ""}  ---
+            %option{:value => "選択肢1"} 送料込み（出品者負担）
+            %option{:value => "選択肢2"} 着払い（購入者負担）
+          %p.bottom
+          %span.font 発送先の地域
+          %span.botan 必須
+          %p.top
+          
+          %select.tiiki{:name => "pref"}
+            %option{:value => ""}  ---
+            %option{:value => "北海道"} 北海道
+            %option{:value => "青森県"} 青森県
+            %option{:value => "岩手県"} 岩手県
+            %option{:value => "宮城県"} 宮城県
+            %option{:value => "秋田県"} 秋田県
+            %option{:value => "山形県"} 山形県
+            %option{:value => "福島県"} 福島県
+            %option{:value => "茨城県"} 茨城県
+            %option{:value => "栃木県"} 栃木県
+            %option{:value => "群馬県"} 群馬県
+            %option{:value => "埼玉県"} 埼玉県
+            %option{:value => "千葉県"} 千葉県
+            %option{:value => "東京都"} 東京都
+            %option{:value => "神奈川県"} 神奈川県
+            %option{:value => "新潟県"} 新潟県
+            %option{:value => "富山県"} 富山県
+            %option{:value => "石川県"} 石川県
+            %option{:value => "福井県"} 福井県
+            %option{:value => "山梨県"} 山梨県
+            %option{:value => "長野県"} 長野県
+            %option{:value => "岐阜県"} 岐阜県
+            %option{:value => "静岡県"} 静岡県
+            %option{:value => "愛知県"} 愛知県
+            %option{:value => "三重県"} 三重県
+            %option{:value => "滋賀県"} 滋賀県
+            %option{:value => "京都府"} 京都府
+            %option{:value => "大阪府"} 大阪府
+            %option{:value => "兵庫県"} 兵庫県
+            %option{:value => "奈良県"} 奈良県
+            %option{:value => "和歌山県"} 和歌山県
+            %option{:value => "鳥取県"} 鳥取県
+            %option{:value => "島根県"} 島根県
+            %option{:value => "岡山県"} 岡山県
+            %option{:value => "広島県"} 広島県
+            %option{:value => "山口県"} 山口県
+            %option{:value => "徳島県"} 徳島県
+            %option{:value => "香川県"} 香川県
+            %option{:value => "愛媛県"} 愛媛県
+            %option{:value => "高知県"} 高知県
+            %option{:value => "福岡県"} 福岡県
+            %option{:value => "佐賀県"} 佐賀県
+            %option{:value => "長崎県"} 長崎県
+            %option{:value => "熊本県"} 熊本県
+            %option{:value => "大分県"} 大分県
+            %option{:value => "宮崎県"} 宮崎県
+            %option{:value => "鹿児島県"} 鹿児島県
+            %option{:value => "沖縄県"} 沖縄県
+          %p.bottom
+          %span.font 発送までの日数
+          %span.botan 必須
+          %p.top
+          %select.day{:name => "pref"}
+            %option{:value => ""}  ---
+            %option{:value => "選択肢1"} １〜２日で発送
+            %option{:value => "選択肢2"} ２〜３日で発送
+            %option{:value => "選択肢3"} ４〜７日で発送
+      .exhibision-main__price
+        .exhibision-main__price__left
+          %span.value 販売価格  (¥300〜9,999,999)
+          %a.form-question{:href => "/jp/help_center/article/68/", :target => "_blank"} ?
+        .exhibision-main__price__right
+          .exhibision-main__price__right__top
+            .exhibision-main__price__right__font
+              %span.font 価格
+              %span.botan 必須
+            .exhibision-main__price__right__input 
+              %span ¥
+              %input.en#user-search-field.chat-group-form__input{:placeholder => "例 )  300", :type => "text", :style => "width:75%;padding:10px 16px 8px;font-size: 16px"}/
+          .exhibision-main__price__right__commission
+            %span.fee 販売手数料(10%)
+            %span.ten -
+          .exhibision-main__price__right__profit  
+            %span.profit 販売利益
+            %span.hutoten -
+            %p
+      .exhibision-main__footer  
+        %p 禁止されている行為および出品物を必ずご確認ください。
+        %p 偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 
+        %p また、出品をもちまして加盟店規約に同意したことになります。
+        .exhibision-main__footer__center
+          %input.uru{:type => "submit", :value => "出品する"}/
+          %input.back{:type => "submit", :value => "もどる"}/ 
+  .exhibision__bottom
+    = render "newfooter"

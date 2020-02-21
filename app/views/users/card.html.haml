@@ -1,6 +1,6 @@
 .background 
   .mypage
-    = render 'tophead'
+    = render '/users/tophead'
     .mypage-side
       %ul.mypage-side__box
         %li
@@ -35,7 +35,7 @@
         %h2 支払い方法
       .card__center
         %h3 クレジットカード一覧
-        = link_to "#" do
+        = link_to "/card/new" do
           .add-card-btn
             %span クレジットカードを追加する
       .card__bottom
@@ -43,5 +43,5 @@
           %span 支払い方法について
           %span ＞
   .muypage__footer
-    = render 'topfooter'
+    = render 'users/topfooter'
           

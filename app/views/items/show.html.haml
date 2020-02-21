@@ -4,8 +4,7 @@
     .show__top
       = @item.name
     .show__image
-      = image_tag(@image[0]["image_url"], size:"560x346")
-      -# = image_tag(@image.image_url.find(1))
+      =image_tag(@item_images["image_url"])
     .show__images
       %ul
         %li
@@ -29,7 +28,7 @@
         %tr
           %th 出品者
           %td 
-            = @item.saler.nickname
+            = @item.saler_id
         %tr
           %th カテゴリー
           %td
