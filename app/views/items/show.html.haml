@@ -4,15 +4,16 @@
     .show__top
       = @item.name
     .show__image
-      = image_tag "showmain.png", size: "560x346"
+      = image_tag(@image[0]["image_url"], size:"560x346")
+      -# = image_tag(@image.image_url.find(1))
     .show__images
       %ul
-        %li  
-          = image_tag "showlist1", size: "140x87"
         %li
-          = image_tag "showlist2", size: "140x87"
+          = image_tag(@image[1]["image_url"], size:"140x87")
         %li
-          = image_tag "showlist3", size: "140x87"
+          = image_tag(@image[2]["image_url"], size:"140x87")
+        %li
+          = image_tag(@image[3]["image_url"], size:"140x87")
     .show__price
       %span 
       ¥
@@ -28,21 +29,23 @@
         %tr
           %th 出品者
           %td 
-            = @item.buyer_id
+            = @item.saler.nickname
         %tr
           %th カテゴリー
-          %td 
-            = link_to "メンズ", "#", class: "show__brand"
+          %td
+            = link_to @parent.parent.parent.name, "#", class: "show__brand"
             %br
-            = link_to "ジャケット/アウター", "#", class: "show__brand"
+            = link_to @parent.parent.name, "#", class: "show__brand"
             %br
-            = link_to "ノーカラージャケット", "#", class: "show__brand"
+            = link_to @parent.name, "#", class: "show__brand"
         %tr
           %th ブランド
-          %td オリジナル
+          %td
+            = @brand.name
         %tr
           %th サイズ
-          %td 大きめ
+          %td
+            = @size.kind
         %tr
           %th 商品状態
           %td 新品/未使用

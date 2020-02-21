@@ -13,8 +13,11 @@ class ItemsController < ApplicationController
   end
 
   def show
-    item = Item.find(1)
-    @item = item
+    @item = Item.find(1)
+    @image = ItemImage.all
+    @parent = Category.find(6)
+    @brand = Brand.find(1)
+    @size = Size.find(1)
   end
 
   private
