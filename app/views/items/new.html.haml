@@ -1,9 +1,6 @@
 .exhibition
   .exhibition-header
-    -# =link_to root_path do
-
-    %a{:href=>"#"}
-    %img{:alt => "",:src => "/assets/logo.png"}/
+    = render 'newhead'
   .exhibition-main
     .exhibition-main__wrapper
       %h1.gorira 商品の情報を入力
@@ -16,7 +13,7 @@
             %p
           .exhibition-main__image__into__camera
             %label{class: "input-box__image"}
-              = f.file_field method, {}.serect(type="file")
+              -# = f.file_field method, {}.serect(type="file")
               .exhibition-main__image__into__camera__into
                 .wide
                   %span.iine ドラッグ&ドロップ またはクリックしてファイルをアップロード
@@ -170,13 +167,4 @@
           %input.uru{:type => "submit", :value => "出品する"}/
           %input.back{:type => "submit", :value => "もどる"}/ 
   .exhibision__bottom
-    %a.b{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
-    %a.c{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
-    %a.d{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
-    %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
-    %img{:alt => "mercari", :height => "65", :src => "/assets/logo.png", :width => "80",:style => "margin: 40px auto 0;"}/
-    
-      
-
-      
-
+    = render "newfooter"

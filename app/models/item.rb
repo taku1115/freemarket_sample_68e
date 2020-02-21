@@ -9,4 +9,5 @@ class Item < ApplicationRecord
   has_one :shipping
   has_many :item_images, dependent: :destroy
   belongs_to :size
+  has_ancestry
 end

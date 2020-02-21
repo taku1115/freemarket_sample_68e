@@ -119,67 +119,77 @@
   .productbox
   .productbox__Head
     = link_to "新規投稿商品",class:"name"
-    
-    
-
   .productLists
     .productList
-      
-      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class: "productList__img"),item_path(@items)
+      = link_to image_tag(@item_images[0]["image_url"], class: "productList__img"),item_path(@items[0])
+      - if @items[0]["trading_status"] ==0
+        .soldout
+          .soldout__text SOLD OUT
       .productList__body
-        %h3.name product3
+        %h3.name
+        = @items[0]["name"]
         .details
-          %ul
-            %li 30000円
+          %ul 
+            %li 
+              = @items[0]["price"]
+            %h5 円
             %li
-              %i.fa.fa-star.likeIcon
-              0
-          %p (税込)
+              %i.fa.fa-star.likeIcon (税込)
+            %h6 👍9670
     .productList
-      
-      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png",class: "productList__img"),item_path(@items)
+      = link_to image_tag(@item_images[1]["image_url"], class: "productList__img"),item_path(@items[1])
+      - if @items[1]["trading_status"] ==0
+        .soldout
+          .soldout__text SOLD OUT
       .productList__body
-        %h3.name product2
+        %h3.name
+        = @items[1]["name"]
         .details
           %ul
-            %li 20000円
             %li
-              %i.fa.fa-star.likeIcon
-              0
-          %p (税込)
+              = @items[1]["price"]
+            %h5 円
+            %li
+              %i.fa.fa-star.likeIcon (税込)
+            %h6 👍5000
     .productList
-      
-      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png",class: "productList__img"),item_path(@items)
+      = link_to image_tag(@item_images[2]["image_url"], class: "productList__img"),item_path(@items[2])
+      - if @items[2]["trading_status"] ==0
+        .soldout
+          .soldout__text SOLD OUT
       .productList__body
-        %h3.name product1
+        %h3.name 
+        = @items[2]["name"]
         .details
           %ul
-            %li 10000円
             %li
-              %i.fa.fa-star.likeIcon
-              0
-          %p (税込)
-
+              = @items[2]["price"]
+            %h5 円
+            %li
+              %i.fa.fa-star.likeIcon (税込)
+            %h6 👍970000
   .pickupContainer1
   %h2.heads3 ピックアップブランド
   .productbox
   .productbox__Head
     = link_to "アーカイバ"
-
   .productLists
     .productList
-      = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class:"productList__img"),item_path(@items)
+      = link_to image_tag(@item_images[3]["image_url"], class: "productList__img"),item_path(@items[3])
+      - if @items[3]["trading_status"] ==0
+        .soldout
+          .soldout__text SOLD OUT
       .productList__body
-      .productList__body
-        %h3.name product3
+        %h3.name 
+        = @items[3]["name"]
         .details
           %ul
-            %li 30000円
             %li
-              %i.fa.fa-star.likeIcon
-              0
-          %p (税込)
-
+              = @items[3]["price"]
+            %h5 円
+            %li
+              %i.fa.fa-star.likeIcon (税込)
+            %h6 👍9700
     .productList
       = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class:"productList__img"),item_path(@items)
       .productList__body
