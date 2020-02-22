@@ -1,10 +1,53 @@
-%label 登録クレジットカード情報
-%br
-= "**** **** **** " + @default_card_information.last4
-%br
-- exp_month = @default_card_information.exp_month.to_s
-- exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-= exp_month + " / " + exp_year
-= form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
-  %input{ type: "hidden", name: "card_id", value: "" }
-  %button 削除する
+
+
+
+.background 
+  .mypage
+    = render 'users/tophead'
+    .mypage-side
+      %ul.mypage-side__box
+        %li
+          = link_to "/users/show" do
+            %span マイページ
+            %span >
+        %li
+          = link_to "/items/new" do
+            %span 出品する
+            %span >
+        %li
+          = link_to "#" do
+            %span ガイド
+            %span >
+        %li
+          = link_to "#" do
+            %span お問い合わせ
+            %span >
+      %h3.mypage-side__section-title
+        設定
+      %ul.mypage-side__box
+        %li
+          = link_to "/users/card" do
+            %span 支払い方法
+            %span >
+        %li
+          = link_to "/users/logout" do
+            %span ログアウト
+            %span >
+    .card
+      .card__top
+        %h2 登録クレジットカード情報
+      .card__form
+        %p カード番号
+        = "**** **** **** " + @default_card_information.last4 
+        %p 有効期限
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = exp_month + " / " + exp_year
+        = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
+          %input{ type: "hidden", name: "card_id", value: "" }
+          %button カードを削除する
+        = link_to root_path do
+          %span.top-link トップページへ 
+  .mypage__footer
+    = render 'users/topfooter'
+    
