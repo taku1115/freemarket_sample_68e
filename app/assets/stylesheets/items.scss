@@ -388,6 +388,7 @@
   background-color: #f8f8f8;
   padding-bottom: 80px;
   height: 100%;
+  text-align: center;
 }
 
 .productbox {
@@ -411,21 +412,19 @@
   color: #3CCACE;
   font-weight: bold;
   }
-
- 
 }
 
 .productLists {
   width: 780px;
   margin: 26px auto; 
   display: flex;
-  justify-content: space-around;
+  text-align: center;
 }
 
 .productList {
   width: 220px;
   display: inline-block;
-  float: left;
+  margin-left: px;
   background-color: white;
   
   &__img {
@@ -555,7 +554,7 @@ h3.name {
 }
 
 .footer {
-  padding: 60px 0;
+  padding: 30px 0;
     color: #fff;
     background-color: #272727;
     text-align: center;

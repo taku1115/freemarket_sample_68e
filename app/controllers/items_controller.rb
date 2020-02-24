@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
   
   def index
-    @items = Item.all
+    @items =Item.order("id Asc").limit(4)
     @item_images = ItemImage.all
     @parents =Category.all.order("id ASC").limit(2)
+
   end
 
   def new
