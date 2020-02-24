@@ -4,6 +4,7 @@ document.addEventListener(
       Payjp.setPublicKey("pk_test_d6f107858b68728d2fad4b03"); //ここに公開鍵を直書き
       let btn = document.getElementById("token_submit"); //IDがtoken_submitの場合に取得されます
       btn.addEventListener("click", e => { //ボタンが押されたときに作動します
+        console.log('本番環境イベント発火テスト');
         e.preventDefault(); //ボタンを一旦無効化します
         let card = {
           number: document.getElementById("card_number").value,
