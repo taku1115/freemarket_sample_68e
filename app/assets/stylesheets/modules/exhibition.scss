@@ -1,4 +1,5 @@
 .exhibition{
+  
   width: 100vw;
   min-height: 100%;
   height: 2364px;
@@ -81,9 +82,7 @@
             font-size: 14px;
             line-height: 1.4em;
           }
-          .serect{
-            display: none;
-          }
+          
           }
         &__camera{
           .wide{
@@ -111,6 +110,29 @@
               height: 80px;
               width: 538px;
               padding: 40px;
+              
+              .wide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                #previews {
+
+                  top: 0;
+                  left: 0;
+
+                }
+                .js-file {
+                  // display: none;
+                  
+                }
+                .js-file_gruop{
+                  // display: flex;
+                  // justify-content: space-between;
+                }
+                .js-remove {
+                  display: none;
+                }
+              }
            }
       }
   
@@ -178,6 +200,11 @@
             .top{
               margin: 8px 0 0;
             }
+            .nini{
+              background-color: gray;
+              color: white;
+              font-size: 14px;
+            }  
             .category{
               width: 100%;
               padding: 0 16px;
@@ -264,6 +291,7 @@
           }
           .bottom{
             margin: 40px 0 0;
+          
           }
         }
 
