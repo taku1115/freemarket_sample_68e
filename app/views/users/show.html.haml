@@ -5,7 +5,7 @@
     .mypage-side
       %ul.mypage-side__box
         %li
-          = link_to "/users/show" do
+          = link_to user_path(current_user) do
             %span マイページ
             %span >
         %li
@@ -36,7 +36,7 @@
         .icon
           = image_tag 'https://picsum.photos/180/180'
         .name
-          %p user.name
+          =@user.nickname
         .score
           %span 評価68
           %span 出品数100
@@ -56,6 +56,6 @@
         = link_to image_tag('LINE_APP.png'),"#"
       .mypage-main__index
         %p.index-title この出品者の商品
-        //= render 'itemlist'
+        = render 'itemlist'
   .mypage__footer 
     =render "topfooter"  
