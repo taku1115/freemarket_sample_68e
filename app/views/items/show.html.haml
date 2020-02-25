@@ -1,55 +1,55 @@
 .shows
   = render 'newhead'
   .show
-    -# .show__top
-    -#   = @item.name
-    -# .show__image
-    -#   = image_tag @item_images[0].image_url
-    -# .show__images
-    -#   %ul
-    -#     %li
-    -#     - @item_images.each do |item|
-    -#       = image_tag item.image_url, size:"140x87"
-    -# .show__price
-    -#   %span
-    -#   ¥
-    -#   = @item.price
-    -#   円
-    -# .show__tax
-    -#   %span（税込)
-    -#   %span 送料込み
+    .show__top
+      = @item.name
+    .show__image
+      = image_tag @item_images[0].image_url
+    .show__images
+      %ul
+        %li
+        - @item_images.each do |item|
+          = image_tag item.image_url, size:"140x87"
+    .show__price
+      %span
+      ¥
+      = @item.price
+      円
+    .show__tax
+      %span（税込)
+      %span 送料込み
     .show__text
-      /= simple_format(@item.text)
+      = simple_format(@item.text)
     .show__details
       %table
         %tr
           %th 出品者
           %td 
-            -# = @item.saler.nickname
+            = @item.saler.nickname
         %tr
           %th カテゴリー
           %td
-            /= link_to @parent.parent.parent.name, "#", class: "show__brand"
+            = link_to @parent.parent.parent.name, "#", class: "show__brand"
             %br
-            /= link_to @parent.parent.name, "#", class: "show__brand"
+            = link_to @parent.parent.name, "#", class: "show__brand"
             %br
-            /= link_to @parent.name, "#", class: "show__brand"
+            = link_to @parent.name, "#", class: "show__brand"
         %tr
           %th 商品状態
           %td
-            /= @shipping.fee_burden
+            = @shipping.fee_burden
         %tr
           %th 発送料の負担
           %td
-            /= @shipping.fee_burden
+            = @shipping.fee_burden
         %tr
           %th 発送元の地域
           %td 
-            /= link_to @shipping.area, "#", class: "show__area"
+            = link_to @shipping.area, "#", class: "show__area"
         %tr
           %th 発送日の目安
           %td
-            /= @shipping.handling_time
+            = @shipping.handling_time
     .show__option
       %ul
         %li
