@@ -25,37 +25,37 @@
         %tr
           %th 出品者
           %td 
-            = @item.saler.nickname
+            
         %tr
           %th カテゴリー
           %td
-            = link_to @parent.parent.parent.name, "#", class: "show__brand"
+           
             %br
-            = link_to @parent.parent.name, "#", class: "show__brand"
+            
             %br
-            = link_to @parent.name, "#", class: "show__brand"
+           
         %tr
           %th 商品状態
           %td
-            = @shipping.fee_burden
+            
         %tr
           %th 発送料の負担
           %td
-            = @shipping.fee_burden
+            
         %tr
           %th 発送元の地域
           %td 
-            = link_to @shipping.area, "#", class: "show__area"
+            
         %tr
           %th 発送日の目安
           %td
-            = @shipping.handling_time
+            
     .show__option
       %ul
         %li
-          = link_to "★ お気に入り 1", "#", class: "show__option__like"
+          
         %li
-          = link_to "購入画面に進む", "pay_purchase_index_path", class: "show__option__report"
+          = link_to "購入画面に進む", purchase_index_path(@items), class: "show__option__report"
 
   .show__comments
     %textarea.show__comments__text

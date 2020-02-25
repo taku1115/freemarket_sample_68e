@@ -1,16 +1,49 @@
-%h2 購入を確定しますか？
-%p Apple MacBook Pro 13インチ
-%p ¥135,000(送料込み)
-%br
-%h3 支払い方法
-- if @default_card_information.blank?
-  %br /
-- else
-  -#以下カード情報を表示
-  = "**** **** **** " + @default_card_information.last4
-  - exp_month = @default_card_information.exp_month.to_s
-  - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-  = exp_month + " / " + exp_year
-%br
-= form_tag(action: :pay, method: :post) do
-  %button 購入する
+.signup-container
+  = render 'newhead'
+  .buydetails-mein.clearfix
+    %section.buydetails-content
+      %h2.buydetails-content__head 購入内容の確認
+      %section.buydetails-content__item
+        .buydetails-content__inner
+          %h3.buydetails-content__image
+            = image_tag "万年筆の無料アイコン素材.png"
+          %p.buydetails-content__item-name
+            %h ワダマサキのペン
+          .buydetails-content__form
+            %p.buydetails-contet__price
+              %h1 ¥90000000
+              %span.buydetails-content__fee
+                %h1 送料込み
+            %ul.buydetails-content__accordion
+              %li.buydetails-content__list
+                .buydetails-content__toggle 
+                  = check_box_tag :check1
+                  = label_tag :check1, "ポイントはありません"
+            %ul.buydetails-content__table
+              %li.buydetails-content__youpay
+                .buydetails-content__pricecell 支払い金額
+                %p 90000000円
+                .buydetails-content__pricecell
+                  %span.buydetails-content__datapay
+            .buydetails-content__text             
+      %section.buydetails-content__info
+        .buydetails-content__inner
+          %h3 配送先
+          %address.buydetails-content__user
+
+            %br 
+            = link_to '登録してください'
+              
+            %br
+      %section.buydetails-content__info{ id: 'buydetails-bottom' }
+        .buydetails-content__inner
+          %h3 支払方法
+          %p.buydetails-content__infotext
+          - if @default_card_information.blank?
+            %br
+            = link_to '登録してください'
+          - else
+          %br
+      %button.buydetails-content-btn 購入する
+.buydetailfooter
+  =render "showfooter"
