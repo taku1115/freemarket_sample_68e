@@ -625,3 +625,27 @@ h3.name {
   font-weight: bold;
   }
 }
+
+.listleft-item1 li li {
+  height: 0;
+  overflow: hidden;
+  
+}
+.listleft-item1 li:hover >ul> li {
+  height: 100%;
+  overflow: visible;
+  background: white;
+  display: block;
+  width: 1020px
+}
+
+.posi {
+  position: relative;
+  // background-color: white;
+}
+.listitem {
+  position: absolute;
+  z-index: 2;
+}
+
+
