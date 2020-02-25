@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   
   def index
-    @items =Item.order("id Asc").limit(1)
+    @items =Item.order("id Asc").limit(4)
     @parents =Category.where(ancestry: nil)
   end
 
