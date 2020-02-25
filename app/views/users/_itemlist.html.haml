@@ -1,0 +1,18 @@
+.productLists
+  - @items.each do |item|
+    .productList
+      = link_to image_tag(item.item_images[0].image_url,class: "productList__img"),item_path(item)
+      - if item["trading_status"] ==0
+        .soldout
+          .soldout__text SOLD OUT 
+      .productList__body
+        %h3.name
+        = item.name
+        .details
+          %ul 
+            %li 
+              = item.price
+            %h5 円
+            %li
+              %i.fa.fa-star.likeIcon (税込)
+            %h6 👍9670

@@ -1,9 +1,7 @@
 
 .exhibition
   .exhibition-header
-    -# =link_to root_path do
-    %a{:href=>"#"}
-    %img{:alt => "",:src => "/assets/logo.png"}/
+    = render 'newhead'
   .exhibition-main
     .exhibition-main__wrapper
       %h1.gorira 商品の情報を入力
@@ -39,6 +37,55 @@
 
         .exhibition-main__entry
           %span.font 商品名
+          .exhibition-main__image__into__camera
+            %label{class: "input-box__image"}
+              -# = f.file_field method, {}.serect(type="file")
+              .exhibition-main__image__into__camera__into
+                .wide
+                  %span.iine ドラッグ&ドロップ またはクリックしてファイルをアップロード
+      .exhibition-main__entry
+        %span.font 商品名
+        %span.botan 必須
+        %p.butween
+        %input#user-search-field.chat-group-form__input{:placeholder => "40文字まで", :type => "text", :style => "width:96%;padding:10px 16px 8px;font-size: 16px"}/
+        %p.top
+        %span.font 商品の説明
+        %span.botan 必須
+        %p.butween
+        %textarea.wide{:cols => "60", :name => "example2", :rows => "6", :placeholder => "商品の説明（必須1,000文字以内) (色、素材、重さ、定価、注意点など)                                                       例）2010年頃に385万円で購入したものです。まあ買いたければ買ったら? ", :type => "textarea",:style => "width:98%;"} 
+        %p.iine
+      .exhibition-main__details
+        .exhibition-main__details__left
+          %span.title 商品の詳細
+        .exhibition-main__details__right
+          %p
+          %span.font カテゴリー
+          %span.botan 必須
+          %p.top
+          %select.category{:name => "pref"}
+            
+            
+          %p.bottom
+          %span.font 商品の状態
+          %span.botan 必須
+          %p.top
+          %select.stetas{:name => "pref"}
+            
+      .exhibision-main__shipping
+        = form_for @shipping do |f|
+          .exhibision-main__shipping__left
+          %span 配送について
+          %a.form-question{:href => "/jp/help_center/article/68/", :target => "_blank"} ?
+          %p
+        .exhibision-main__shipping__right
+          %span.font 配送料の負担
+          %span.botan 必須
+          %p.top
+
+          %select.hutan{:name => "pref"}
+           
+          %p.bottom
+          %span.font 発送先の地域
           %span.botan 必須
           %p.butween
           %br/
@@ -124,48 +171,12 @@
       %a.d{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
       %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
       %img{:alt => "mercari", :height => "65", :src => "/assets/logo.png", :width => "80",:style => "margin: 40px auto 0;"}/
-      
-        
-
-        
-
--# = form_for @item do |f|
--#   =f.fields_for :item_images do |c|
--#     =c.file_field :image_url
--#   %br/
--#   商品名
--#   %br/
--#   = f.text_field :name
--#   %br/
--#   商品説明
--#   %br/
--#   = f.text_area :text
--#   %br/
--#   ステータス
--#   %br/
--#   #{f.number_field :trading_status}
--#   %br/
--#   = f.fields_for :category do |i|
--#     %p カテゴリー
--#     = i.text_area :name
--#     -# = i.collection_select :category_user_id, Category.all, :id,, :include_blank => '指定なし'
--#   %br/
--#   商品状態
--#   %br/
--#   = f.collection_select :condition_id, Condition.all, :id, :name, prompt: "---"
--#   = f.fields_for :shipping do |a|
--#     %p 配送料負担
--#     = a.collection_select :delivery_fee_id, DeliveryFee.all, :id, :name, prompt: "---"
--#     %br/
--#     %p 配送方法
--#     = a.collection_select :delivery_handlingtime_id, DeliveryHandlingtime.all, :id, :name, prompt: "---"
--#     %br/
--#     %p 配送元 都道府県
--#     = a.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, prompt: "---"
--#   %br/
--#   価格#{f.number_field :price}
--#   %br/
--#   = f.submit
-
-
-
+      .exhibision-main__footer  
+        %p 禁止されている行為および出品物を必ずご確認ください。
+        %p 偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 
+        %p また、出品をもちまして加盟店規約に同意したことになります。
+        .exhibision-main__footer__center
+          %input.uru{:type => "submit", :value => "出品する"}/
+          %input.back{:type => "submit", :value => "もどる"}/ 
+  .exhibision__bottom
+    = render "newfooter"

@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   
   def index
-    @item = Item.all
-    @items = Item.includes(:item_images).order('created_at DESC')
+    @items =Item.order("id Asc").limit(4)
+    @parents =Category.where(ancestry: nil)
   end
 
   def new
@@ -29,14 +29,16 @@ class ItemsController < ApplicationController
   #   # Shipping.create(shipping_params)
   end
   def show
-    item = Item.find(1)
+    item = Item.find(params[:id])
     @item = item
+    @item_images = item.item_images.limit(3)
+    @parent = item.category
+    @shipping = item.shipping
   end
+
 
   private
   def items_params
     params.require(:item).permit(:name, :condition_id,:text, :price, :trading_status, :buyer, :saler, :completed_at, shipping_attributes: [:delivery_fee_id, :delivery_handlingtime_id, :prefecture_code], category_attributes: [:category_user_id], item_images_attributes: %i[image_url])
   end
-
-
 end

@@ -1,11 +1,3 @@
-.top-banner
-  .top-banner__in
-    %h2.top-banner__in__title だれでもかんたん、人生を変えるフリマアプリ
-    %p.top-banner__in__text 今すぐ無料ダウンロード！
-    .top-banner__in__icon
-      = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class: "apple3")
-      = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg",class: "google3")
-
 .footer
   %ul.contents
     %li.content
@@ -38,8 +30,3 @@
   .footer__logo
     = link_to image_tag("logo-white.png",class: "orz2")
   %p © FURIMA
-
-.exhibision-btn
-  .exhibision-btn__item
-    出品する
-    = link_to image_tag("icon_camera.png", size: "54x54", class: "footer__icon"),new_item_path(@new)
