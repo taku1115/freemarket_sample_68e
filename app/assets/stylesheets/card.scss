@@ -12,6 +12,10 @@
   left: 190px;
 }
 
+#charge-form {
+  margin: 10px 0;
+}
+
 .form-require {
   background: #ea352d;
   margin: 0 0 0 8px;
@@ -20,4 +24,17 @@
   color: #fff;
   font-size: 12px;
 }
+
+a {
+  text-decoration: none;
+} 
+.top-link {
+  font-size: 13px;
+  color: black;
+  border: 1px solid #3CCACE;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+
 
