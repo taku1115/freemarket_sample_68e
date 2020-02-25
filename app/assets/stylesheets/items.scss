@@ -424,7 +424,6 @@
 .productList {
   width: 220px;
   display: inline-block;
-  margin-left: px;
   background-color: white;
   
   &__img {
@@ -641,11 +640,8 @@ h3.name {
 
 .posi {
   position: relative;
-  // background-color: white;
 }
 .listitem {
   position: absolute;
   z-index: 2;
 }
-
-

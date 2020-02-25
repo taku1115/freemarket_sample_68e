@@ -123,19 +123,19 @@
   .productbox__Head
     = link_to "新規投稿商品",class:"name" 
   .productLists
-  - @items.each do |a|
+  - @items.each do |item|
     .productList
-      = link_to image_tag(a.item_images[0].image_url,class: "productList__img"),item_path(a)
-      - if a["trading_status"] ==0
+      = link_to image_tag(item.item_images[0].image_url,class: "productList__img"),item_path(item)
+      - if item["trading_status"] ==0
         .soldout
           .soldout__text SOLD OUT 
       .productList__body
         %h3.name
-        = a.name
+        = item.name
         .details
           %ul 
             %li 
-              = a.price
+              = item.price
             %h5 円
             %li
               %i.fa.fa-star.likeIcon (税込)
