@@ -1,54 +1,18 @@
-.pickupContainer1
-  .productbox
-  .productbox__Head
-  .productLists
+.productLists
+  - @items.each do |item|
     .productList
-      = link_to image_tag(@item_images[0]["image_url"], class: "productList__img"),item_path(@items[0])
-      - if @items[0]["trading_status"] ==0
+      = link_to image_tag(item.item_images[0].image_url,class: "productList__img"),item_path(item)
+      - if item["trading_status"] ==0
         .soldout
-          .soldout__text SOLD OUT
+          .soldout__text SOLD OUT 
       .productList__body
-        %h3.name 
-        = @items[0]["name"]
+        %h3.name
+        = item.name
         .details
-          %ul
-            %li
-              = @items[0]["price"]
+          %ul 
+            %li 
+              = item.price
             %h5 円
             %li
               %i.fa.fa-star.likeIcon (税込)
-            %h6 👍9700
-    .productLists
-    .productList
-      = link_to image_tag(@item_images[1]["image_url"], class: "productList__img"),item_path(@items[1])
-      - if @items[1]["trading_status"] ==0
-        .soldout
-          .soldout__text SOLD OUT
-      .productList__body
-        %h3.name 
-        = @items[1]["name"]
-        .details
-          %ul
-            %li
-              = @items[1]["price"]
-            %h5 円
-            %li
-              %i.fa.fa-star.likeIcon (税込)
-            %h6 👍9700
-    .productLists
-    .productList
-      = link_to image_tag(@item_images[2]["image_url"], class: "productList__img"),item_path(@items[2])
-      - if @items[2]["trading_status"] ==0
-        .soldout
-          .soldout__text SOLD OUT
-      .productList__body
-        %h3.name 
-        = @items[2]["name"]
-        .details
-          %ul
-            %li
-              = @items[2]["price"]
-            %h5 円
-            %li
-              %i.fa.fa-star.likeIcon (税込)
-            %h6 👍9700
+            %h6 👍9670
