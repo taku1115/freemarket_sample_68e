@@ -1,9 +1,8 @@
 class ItemsController < ApplicationController
   
   def index
-    @items = Item.order("id ASC").limit(3)
-    @parents =Category.all.order("id ASC").limit(2)
-    
+    @items =Item.order("id Asc").limit(4)
+    @parents =Category.where(ancestry: nil)
   end
 
   def new
@@ -29,14 +28,6 @@ class ItemsController < ApplicationController
     @shipping = item.shipping
   end
 
-  def search
-    respond_to do |format|
-      format.html
-      format.json do
-        @children = Category.find(params[:parent_id].children)
-    end
-  end
-end
 
   private
   def items_params
