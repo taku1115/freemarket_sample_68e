@@ -25,7 +25,6 @@
                 %p 90000000円
                 .buydetails-content__pricecell
                   %span.buydetails-content__datapay
-                    -# = @product.jpy
             .buydetails-content__text             
       %section.buydetails-content__info
         .buydetails-content__inner
@@ -36,10 +35,6 @@
             = link_to '登録してください'
               
             %br
-              -# = @full_name
-          -# = link_to identification_mypage_index_path, class: 'buydetails-content__fix' do
-          -#   %span 変更する
-            = icon 'fas', 'chevron-right'
       %section.buydetails-content__info{ id: 'buydetails-bottom' }
         .buydetails-content__inner
           %h3 支払方法
