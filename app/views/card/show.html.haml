@@ -7,7 +7,7 @@
     .mypage-side
       %ul.mypage-side__box
         %li
-          = link_to "/users/show" do
+          = link_to user_path(current_user) do
             %span マイページ
             %span >
         %li
