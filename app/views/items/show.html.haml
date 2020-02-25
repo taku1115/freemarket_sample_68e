@@ -4,17 +4,14 @@
     .show__top
       = @item.name
     .show__image
-      =image_tag(@item_images["image_url"])
+      = image_tag @item_images[0].image_url
     .show__images
       %ul
         %li
-          = image_tag(@image[1]["image_url"], size:"140x87")
-        %li
-          = image_tag(@image[2]["image_url"], size:"140x87")
-        %li
-          = image_tag(@image[3]["image_url"], size:"140x87")
+        - @item_images.each do |item|
+          = image_tag item.image_url, size:"140x87"
     .show__price
-      %span 
+      %span
       ¥
       = @item.price
       円
@@ -28,7 +25,7 @@
         %tr
           %th 出品者
           %td 
-            = @item.saler_id
+            = @item.saler.nickname
         %tr
           %th カテゴリー
           %td
@@ -38,32 +35,27 @@
             %br
             = link_to @parent.name, "#", class: "show__brand"
         %tr
-          %th ブランド
-          %td
-            = @brand.name
-        %tr
-          %th サイズ
-          %td
-            = @size.kind
-        %tr
           %th 商品状態
-          %td 新品/未使用
+          %td
+            = @shipping.fee_burden
         %tr
           %th 発送料の負担
-          %td 着払い（出品者負担）
+          %td
+            = @shipping.fee_burden
         %tr
           %th 発送元の地域
           %td 
-            = link_to "青森", "#", class: "show__area"
+            = link_to @shipping.area, "#", class: "show__area"
         %tr
           %th 発送日の目安
-          %td 三日以内
+          %td
+            = @shipping.handling_time
     .show__option
       %ul
         %li
           = link_to "★ お気に入り 1", "#", class: "show__option__like"
         %li
-          = link_to "不適切な商品の通報", "#", class: "show__option__report"
+          = link_to "購入画面に進む", "/users/purchase/(pramus[:id])", class: "show__option__report"
 
   .show__comments
     %textarea.show__comments__text
@@ -76,7 +68,7 @@
         コメントする
   .show__bottom
     .show__bottom__next
-      = link_to "<前の商品", "#", class: "show__bottom__next__left"
+      = link_to "<前の商品", root_path, class: "show__bottom__next__left"
       = link_to "後ろの商品>", "#", class: "show__bottom__next__right"
     .show__bottom__lists
       = link_to "メンズをもっと見る", "#", class: "show__bottom__lists__list"

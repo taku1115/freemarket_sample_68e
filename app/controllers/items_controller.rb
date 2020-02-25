@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
   
   def index
-    @items = Item.all
-    @item_images = ItemImage.all
+    @items = Item.order("id ASC").limit(3)
     @parents =Category.all.order("id ASC").limit(2)
+    
   end
 
   def new
@@ -24,7 +24,9 @@ class ItemsController < ApplicationController
   def show
     item = Item.find(params[:id])
     @item = item
-    @item_images = ItemImage.find(params[:id])
+    @item_images = item.item_images.limit(3)
+    @parent = item.category
+    @shipping = item.shipping
   end
 
   def search
