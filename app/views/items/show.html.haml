@@ -4,12 +4,12 @@
     .show__top
       = @item.name
     .show__image
-      = image_tag @item_images[0].image_url
+      = image_tag @item_images[0]["image_url"]
     .show__images
       %ul
         %li
         - @item_images.each do |item|
-          = image_tag item.image_url, size:"140x87"
+          -# = image_tag item.image_url, size:"140x87"
     .show__price
       %span
       ¥
@@ -25,25 +25,25 @@
         %tr
           %th 出品者
           %td 
-            = @item.saler.nickname
+            -# = @item.saler.nickname
         %tr
           %th カテゴリー
         %tr
           %th 商品状態
           %td
-            = @shipping.fee_burden
+            -# = @shipping.fee_burden
         %tr
           %th 発送料の負担
           %td
-            = @shipping.fee_burden
+            -# = @shipping.fee_burden
         %tr
           %th 発送元の地域
           %td 
-            = link_to @shipping.area, "#", class: "show__area"
+            -# = link_to @shipping.area, "#", class: "show__area"
         %tr
           %th 発送日の目安
           %td
-            = @shipping.handling_time
+            -# = @shipping.handling_time
     .show__option
       %ul
         %li

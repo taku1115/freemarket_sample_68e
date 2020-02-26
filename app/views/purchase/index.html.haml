@@ -8,7 +8,7 @@
         .buydetails-content__inner
           %h3.buydetails-content__image
           - @item_images.each do |image|
-            = image_tag image.image_url, size: "64x64", class: "buydetails-content__image"
+            = image_tag @item_images[0]["image_url"], size: "64x64", class: "buydetails-content__image"
           %h1.buydetails-content__item-name
             = @item.name
             -# = @product.name
