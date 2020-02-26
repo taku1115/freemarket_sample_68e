@@ -11,6 +11,7 @@
             .search-item
               = image_tag 'icon-search 1.png'
             %input{name: "authenticity_token", type: "hidden", value: "+Z5TWFAnhn4nyERwyq8tGeL24RWLf6d/DXQga++bhRyXAu8YJ5uoGBiBOvHimDNE1x9srYXVjnFOgiOPbUdCzQ=="}/
+            
     %ul.top-nav
       .listleft
         %ul.listleft-item1
@@ -125,7 +126,7 @@
   .productLists
   - @items.each do |item|
     .productList
-      = link_to image_tag(item.item_images[0].image_url,class: "productList__img"),item_path(item)
+      -# = link_to image_tag(item.item_images[0].image_url,class: "productList__img"),item_path(item)
       - if item["trading_status"] ==0
         .soldout
           .soldout__text SOLD OUT 
