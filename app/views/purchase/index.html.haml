@@ -7,14 +7,15 @@
       %section.buydetails-content__item
         .buydetails-content__inner
           %h3.buydetails-content__image
-          -# - @product.images.each do |image|
-          -#   = image_tag image, size: ‘64x64’, class: ‘buydetails-contet__image’
-          %p.buydetails-content__item-name
+          - @item_images.each do |image|
+            = image_tag image.image_url, size: "64x64", class: "buydetails-content__image"
+          %h1.buydetails-content__item-name
             = @item.name
             -# = @product.name
           .buydetails-content__form
             %p.buydetails-contet__price
-              %h1 ¥9000
+              -# %h1 ¥9000
+              = "#{@item.price}円"
               -# = @product.jpy
               %span.buydetails-content__fee
                 %h1 送料込み

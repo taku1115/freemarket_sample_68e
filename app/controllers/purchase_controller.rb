@@ -3,8 +3,10 @@ class PurchaseController < ApplicationController
     require 'payjp'
   
     def index
+      @item = Item.find(params[:item_id])
+      @item_images = @item.item_images
       card = Card.where(user_id: current_user.id).first
-      #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
+      #Cardテーブルからpayjpの顧客IDを検索
       if card.blank?
         #登録された情報がない場合にカード登録画面に移動
         redirect_to controller: "card", action: "new"
