@@ -24,7 +24,7 @@
         .field
       .user-main__field
         = f.label :パスワード再確認, class:'user-form-group'
-        %br/
+        %br/ 
         = f.password_field :password_confirmation, class:'user-field', autocomplete: "new-password"
         %br/
         %h3 ※ 英字と数字の両方を含めて設定してください
@@ -50,6 +50,40 @@
         = f.text_field :family_name_kana, class:'user-field2', placeholder: "例） ハヤシ"
         = f.text_field :first_name_kana, class:'user-field2', placeholder: "例） タク"
         %br/
+        .user-main__field
+        = f.label :送付先氏名（全角）
+        %span ※必須
+        %br/
+        = f.text_field :delivery_family_name, class:'user-field2', placeholder: "名字"
+        = f.text_field :delivery_first_name, class:'user-field2', placeholder: "名前"
+        %br/
+      .user-main__field
+        = f.label :送付先氏名カナ（全角）
+        %span ※必須
+        %br/
+        = f.text_field :delivery_family_name_kana, class:'user-field2', placeholder: "カナ"
+        = f.text_field :delivery_first_name_kana, class:'user-field2', placeholder: "カナ"
+        %br/
+      .user-main__field
+        = f.label :郵便番号
+        %span ※必須
+        = f.text_field :postal_code, class:'user-field', placeholder: "ハイフン不要"
+        %br/
+      .user-main__field
+        = f.label :都道府県
+        %span ※必須
+        = f.text_field :prefectures, class:'user-field'
+        %br/
+      .user-main__field
+        = f.label :市区町村
+        %span ※必須
+        = f.text_field :municipality, class:'user-field'
+        %br/
+      .user-main__field
+        = f.label :◯◯番地
+        %span ※必須
+        = f.text_field :address, class:'user-field'
+        %br/ 
       .user-main__field
         = f.label :生年月日
         %span ※必須

@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_one  :deliver_adresses, dependent: :destroy
   has_many :cards
 
-  validates :nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day, :password, :email, presence: true
+  validates :nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day, :password, :email, :delivery_first_name, :delivery_family_name, :delivery_first_name_kana, :delivery_family_name_kana, :prefectures, :municipality, :address, :postal_code, presence: true
 end
