@@ -127,7 +127,6 @@
   - @items.zip(@item_images) do  |item,item_image|
     .productList
       = link_to image_tag(item_image["image_url"],class: "productList__img"),item_path(item)
-      必要なので残しています
       - if item["trading_status"] ==0
         .soldout
           .soldout__text SOLD OUT   
