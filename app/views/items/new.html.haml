@@ -14,7 +14,6 @@
             %p
             .exhibition-main__image__into__camera
               %label{class: "input-box__image"}
-                -# = f.file_field method, {}.serect(type="file")
                 .exhibition-main__image__into__camera__into
                   .wide
                     #image-box 
@@ -74,7 +73,6 @@
               %span.botan 必須
               %p.top
               = a.collection_select :delivery_fee_id, DeliveryFee.all, :id, :name, prompt: "選択して下さい", class: "hutan"
-              -# = i.select :fee_burden,['送料込み（出品者負担）', '着払い（購入者負担）' ], {include_blank: '選択してください'}, class:"hutan"
               %p.bottom
               %span.font 発送先の地域
               %span.botan 必須
@@ -114,54 +112,4 @@
             %input.back{:type => "submit", :value => "もどる"}/ 
     .exhibision__bottom
       = render "newfooter"
-      -# %a.b{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
-      -# %a.c{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
-      -# %a.d{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
-      -# %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
-      -# %img{:alt => "mercari", :height => "65", :src => "/assets/logo.png", :width => "80",:style => "margin: 40px auto 0;"}/
-      
-      
-        
-
-        
-
--# = form_for @item do |f|
--#   =f.fields_for :item_images do |c|
--#     =c.file_field :image_url
--#   %br/
--#   商品名
--#   %br/
--#   = f.text_field :name
--#   %br/
--#   商品説明
--#   %br/
--#   = f.text_area :text
--#   %br/
--#   ステータス
--#   %br/
--#   #{f.number_field :trading_status}
--#   %br/
--#   = f.fields_for :category do |i|
--#     %p カテゴリー
--#     = i.text_area :name
--#     -# = i.collection_select :category_user_id, Category.all, :id,, :include_blank => '指定なし'
--#   %br/
--#   商品状態
--#   %br/
--#   = f.collection_select :condition_id, Condition.all, :id, :name, prompt: "---"
--#   = f.fields_for :shipping do |a|
--#     %p 配送料負担
--#     = a.collection_select :delivery_fee_id, DeliveryFee.all, :id, :name, prompt: "---"
--#     %br/
--#     %p 配送方法
--#     = a.collection_select :delivery_handlingtime_id, DeliveryHandlingtime.all, :id, :name, prompt: "---"
--#     %br/
--#     %p 配送元 都道府県
--#     = a.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, prompt: "---"
--#   %br/
--#   価格#{f.number_field :price}
--#   %br/
--#   = f.submit
-
-
 
