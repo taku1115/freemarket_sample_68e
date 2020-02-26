@@ -6,27 +6,16 @@ class ItemsController < ApplicationController
   end
 
   def new
-    # binding pry
     @item = Item.new
     @item.item_images.new
     @item.build_shipping
     @item.build_category
-    # @item_images =Item.new
   end
   
   def create
     Item.create(items_params)
     redirect_to root_path
-    # @shipping =Shipping.all
-    # @category = Category.all
-    # @item.save
-  #   redirect_to root_path
-  #   end
-  # else
-    # @shipping =Shipping.includes(item)
-  #   flash.now[:alert] = 'メッセージを入力してください。'
-  #   render :index
-  #   # Shipping.create(shipping_params)
+    
   end
   def show
     item = Item.find(params[:id])
