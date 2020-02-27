@@ -17,7 +17,6 @@
       円
     .show__tax
       %span（税込)
-      %span 送料込み
     .show__text
       = simple_format(@item.text)
     .show__details
@@ -25,25 +24,27 @@
         %tr
           %th 出品者
           %td 
-            -# = @item.saler.nickname
+            = @item.saler.nickname
         %tr
           %th カテゴリー
+          %td
+            = @item.category.name
         %tr
           %th 商品状態
           %td
-            -# = @shipping.fee_burden
+            = @item.condition.name
         %tr
           %th 発送料の負担
           %td
-            -# = @shipping.fee_burden
+            = @item.shipping.delivery_fee.name
         %tr
           %th 発送元の地域
           %td 
-            -# = link_to @shipping.area, "#", class: "show__area"
+            = link_to @item.shipping.prefecture.name, "#", class: "show__area"
         %tr
           %th 発送日の目安
           %td
-            -# = @shipping.handling_time
+            = @item.shipping.delivery_handlingtime.name
     .show__option
       %ul
         %li

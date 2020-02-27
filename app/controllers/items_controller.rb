@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   
   def index
-    @items =Item.order("id Asc").limit(4)
+    @items =Item.order("id DESC").limit(4)
     @item_images = ItemImage.all
     @parents =Category.where(ancestry: nil)
   end
@@ -29,6 +29,6 @@ class ItemsController < ApplicationController
 
   private
   def items_params
-    params.require(:item).permit(:name, :condition_id,:text, :price, :trading_status, :buyer, :saler, :completed_at, shipping_attributes: [:delivery_fee_id, :delivery_handlingtime_id, :prefecture_code], category_attributes: [:name], item_images_attributes: %i[image_url])
+    params.require(:item).permit(:name, :condition_id,:text, :price, :trading_status, :buyer, :saler, :completed_at, shipping_attributes: [:delivery_fee_id, :delivery_handlingtime_id, :prefecture_code], category_attributes: [:name], item_images_attributes: %i[image_url]).merge(saler_id: current_user.id)
   end
 end
