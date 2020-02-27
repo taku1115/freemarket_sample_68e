@@ -1,5 +1,25 @@
-%h2 購入が完了しました！
-%p Apple MacBook Pro 13インチ
-%p ¥135,000(送料込み)
-= link_to root_path do
-  %span.top-link トップページへ 
+.purchase-header 
+  = render 'items/newhead'
+.signup-container
+  .buydetails-mein.clearfix
+    %section.buydetails-content#bought-item-confirm-box
+      %h2.buydetails-content__head 購入が完了しました！
+      %section.buydetails-content__item
+        .buydetails-content__inner
+          - @item_images.each do |image|
+            = image_tag @item_images[0]["image_url"], size: "100x100", class: "buydetails-content__image"
+          .buydetails-content__form
+            %h1.buydetails-content__item-name#bought-item-name
+              = @item.name
+            %span.buydetails-contet__price
+              = "#{@item.price}円"
+            %span.buydetails-content__fee
+              - if @item.shipping.delivery_fee_id == "1"
+                %span 送料込み
+              - else
+                %span 着払い
+        = link_to root_path do
+          .top-link
+            %span トップページに戻る
+    .purchase-footer
+      = render "users/topfooter"
