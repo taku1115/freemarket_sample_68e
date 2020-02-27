@@ -89,7 +89,8 @@
         }
       } 
       &__index {
-        height: auto;
+        height: 600px;
+        overflow: scroll;
         .index-title {
           font-size: 25px;
         }
