@@ -4,7 +4,7 @@ class PurchaseController < ApplicationController
   
     def index
       @item = Item.find(params[:item_id])
-      @item_images = @item.item_images
+      @item_images = @item.item_images.limit(1)
       card = Card.where(user_id: current_user.id).first
       #Cardテーブルからpayjpの顧客IDを検索
       if card.blank?
@@ -33,7 +33,7 @@ class PurchaseController < ApplicationController
 
     def done
       @item = Item.find(params[:item_id])
-      @item_images = @item.item_images
+      @item_images = @item.item_images.limit(1)
     end
   
   end
