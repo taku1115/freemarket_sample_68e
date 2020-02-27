@@ -11,10 +11,11 @@ class ItemsController < ApplicationController
     @item.item_images.new
     @item.build_shipping
     @item.build_category
+    @categories = Category.where(ancestry: nil).limit(13)
   end
   
   def create
-    Item.create(items_params)
+    Item.create!(items_params)
     redirect_to root_path
     
   end
@@ -28,6 +29,6 @@ class ItemsController < ApplicationController
 
   private
   def items_params
-    params.require(:item).permit(:name, :condition_id,:text, :price, :trading_status, :buyer, :saler, :completed_at, shipping_attributes: [:delivery_fee_id, :delivery_handlingtime_id, :prefecture_code], category_attributes: [:category_user_id], item_images_attributes: %i[image_url])
+    params.require(:item).permit(:name, :condition_id,:text, :price, :trading_status, :buyer, :saler, :completed_at, shipping_attributes: [:delivery_fee_id, :delivery_handlingtime_id, :prefecture_code], category_attributes: [:name], item_images_attributes: %i[image_url])
   end
 end
