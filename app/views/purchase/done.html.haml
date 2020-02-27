@@ -13,11 +13,9 @@
               = @item.name
             %span.buydetails-contet__price
               = "#{@item.price}円"
+              %br/
             %span.buydetails-content__fee
-              - if @item.shipping.delivery_fee_id == "1"
-                %span 送料込み
-              - else
-                %span 着払い
+              = @item.shipping.delivery_fee.name
         = link_to root_path do
           .top-link
             %span トップページに戻る
