@@ -124,11 +124,9 @@
   .productbox__Head
     = link_to "新規投稿商品",class:"name" 
   .productLists
-  - @items.zip(@item_images) do |item,item_image|
+  - @items.each do|item|
     .productList
-
-      = link_to image_tag(item_image["image_url"],class: "productList__img"),item_path(item)
-
+      = link_to image_tag(item.item_images[0]["image_url"],class: "productList__img"),item_path(item)
       - if item["trading_status"] ==0
         .soldout
           .soldout__text SOLD OUT   
