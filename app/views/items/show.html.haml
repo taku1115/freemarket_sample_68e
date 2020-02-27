@@ -5,11 +5,11 @@
       = @item.name
     .show__image
       = image_tag @item_images[0]["image_url"]
-    .show__images
+    %br.show__images
       %ul
         %li
         - @item_images.each do |item|
-          -# = image_tag item.image_url, size:"140x87"
+          = image_tag(item["image_url"], size:"140x87")
     .show__price
       %span
       ¥
@@ -40,7 +40,7 @@
         %tr
           %th 発送元の地域
           %td 
-            = link_to @item.shipping.prefecture.name, "#", class: "show__area"
+            = @item.shipping.prefecture.name
         %tr
           %th 発送日の目安
           %td

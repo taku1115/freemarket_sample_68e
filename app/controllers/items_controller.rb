@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
   end
   def show
     @item = Item.find(params[:id])
-    @item_images = @item.item_images.limit(3)
+    @item_images = @item.item_images.limit(8)
     @parent = @item.category
     @shipping = @item.shipping
   end
