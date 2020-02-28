@@ -25,6 +25,15 @@ class ItemsController < ApplicationController
     @shipping = @item.shipping
   end
 
+  def edit
+  end
+
+  def destroy
+  end
+
+  def update
+  end
+
 
   private
   def items_params
