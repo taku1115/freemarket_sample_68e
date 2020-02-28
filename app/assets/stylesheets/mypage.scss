@@ -89,6 +89,8 @@
         }
       } 
       &__index {
+        height: 600px;
+        overflow: scroll;
         .index-title {
           font-size: 25px;
         }
@@ -192,5 +194,9 @@
   }
 }
 .mypage__footer  {
-  margin-top: 193px;
+  margin-top: 500px;
+}
+
+.productList {
+  margin-bottom: 20px;
 }

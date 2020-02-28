@@ -12,10 +12,15 @@
             .search-item
               = image_tag 'icon-search 1.png'
             %input{name: "authenticity_token", type: "hidden", value: "+Z5TWFAnhn4nyERwyq8tGeL24RWLf6d/DXQga++bhRyXAu8YJ5uoGBiBOvHimDNE1x9srYXVjnFOgiOPbUdCzQ=="}/
-    .top-nav
+    %ul.top-nav
       .listleft
-        .listleft-item1
-        = link_to "カテゴリー"
+        %ul.listleft-item1
+          %li.posi
+            = link_to "カテゴリー"
+            %ul.listitem
+              %li
+                - @parents.each do |parent|
+                  = link_to "#{parent.name}",id: "#{parent.id}"
         .listleft-item2
         = link_to "ブランド"
       .listright
