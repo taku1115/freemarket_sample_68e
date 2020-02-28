@@ -51,6 +51,10 @@
           = link_to "★ お気に入り 1", "#", class: "show__option__like"
         %li
           = link_to "購入画面に進む", item_purchase_index_path(@item) , class: "show__option__report"
+        %li
+          = link_to "編集"
+        %li
+          = link_to "削除" ,item_path(@item) ,data:{confirm: "本当に削除しますか？"},method: :delete 
 
   .show__comments
     %textarea.show__comments__text
