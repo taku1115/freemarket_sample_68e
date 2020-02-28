@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module FreemarketSample68e
   class Application < Rails::Application
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', 'models', 'ja.yml').to_s]
+    config.i18n.default_locale = :ja
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     # Settings in config/environments/* take precedence over those specified here.
