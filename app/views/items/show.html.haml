@@ -55,6 +55,8 @@
         - if user_signed_in? && @item.saler.id == current_user.id
           = link_to "編集"
           = link_to "削除" ,item_path(@item) ,data:{confirm: "本当に削除しますか？"},method: :delete 
+        - else
+          = link_to "削除" ,item_path(@item) ,data:{confirm: "削除できませんでした"}
   .show__comments
     %textarea.show__comments__text
     .show__comments__notice
