@@ -635,7 +635,7 @@ h3.name {
   overflow: visible;
   background: white;
   display: block;
-  width: 1020px
+  width: 160px;
 }
 
 .posi {
@@ -644,4 +644,16 @@ h3.name {
 .listitem {
   position: absolute;
   z-index: 2;
+  a {
+    float: left;
+    background:white ;
+    border: solid 1px;
+    border-color: whitesmoke;
+    width: 100%;
+    text-align: left;
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+  }
 }
+

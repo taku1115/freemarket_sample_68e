@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   
   def index
     @items =Item.order("id DESC").limit(4)
-    @parents =Category.where(ancestry: nil)
+    @parents =Category.where(ancestry: nil).limit(13)
   end
 
   def new
