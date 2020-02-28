@@ -6,6 +6,7 @@
     .exhibition-main__wrapper
       %h1.gorira 商品の情報を入力
       = form_for @item do |f|
+        = render 'items/error_messages', model: f.object
         .exhibition-main__image
           .exhibition-main__image__top
             %span.font 出品画像 

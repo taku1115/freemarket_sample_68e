@@ -1,7 +1,10 @@
 class ItemsController < ApplicationController
   
   def index
-    @items =Item.order("id DESC").limit(4)
+
+    @items =Item.order("id Asc").limit(4)
+    @item_images = ItemImage.all
+
     @parents =Category.where(ancestry: nil).limit(13)
   end
 
@@ -14,10 +17,18 @@ class ItemsController < ApplicationController
   end
   
   def create
-    Item.create(items_params)
-    redirect_to root_path
-    
+
+    @item = Item.create(items_params)
+    @categories = Category.where(ancestry: nil).limit(13)
+    if @item.save
+      redirect_to root_path
+    else
+      @item.item_images.new
+      render :new
+    end
+
   end
+
   def show
     @item = Item.find(params[:id])
     @item_images = @item.item_images.limit(8)
