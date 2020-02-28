@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'purchase/done'
   devise_for :users
   root 'items#index'
-  resources :items, only: [:new, :create, :show] do
+  resources :items do
     resources :purchase, only: [:index] do
       collection do
         get 'index', to: 'purchase#index'
