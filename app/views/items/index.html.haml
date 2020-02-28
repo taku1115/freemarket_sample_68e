@@ -126,7 +126,13 @@
   .productLists
   - @items.zip(@item_images) do  |item,item_image|
     .productList
+<<<<<<< Updated upstream
       = link_to image_tag(item_image["image_url"],class: "productList__img"),item_path(item)
+=======
+      -item.item_images.each do |image|
+        = image_tag image.image_url.url
+      -# = link_to image_tag(item.item_images[0]["image_url"],class: "productList__img"),item_path(item)
+>>>>>>> Stashed changes
       - if item["trading_status"] ==0
         .soldout
           .soldout__text SOLD OUT   

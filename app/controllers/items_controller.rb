@@ -1,7 +1,12 @@
 class ItemsController < ApplicationController
   
   def index
+<<<<<<< Updated upstream
     @items =Item.order("id Asc").limit(4)
+=======
+
+    @items =Item.order("id Desc").limit(4)
+>>>>>>> Stashed changes
     @item_images = ItemImage.all
     @parents =Category.where(ancestry: nil)
   end
