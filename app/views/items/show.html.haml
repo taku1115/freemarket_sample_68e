@@ -4,7 +4,7 @@
     .show__top
       = @item.name
     .show__image
-      - @item.item_images.each do |image|
+      - @item.item_images.first(1).each do |image|
         = image_tag image.image_url.url
     %br.show__images
       %ul
