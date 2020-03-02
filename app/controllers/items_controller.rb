@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   
   def index
 
-    @items =Item.order("id Asc").limit(4)
+    @items =Item.order("id desc").limit(4)
     @item_images = ItemImage.all
 
     @parents =Category.where(ancestry: nil).limit(13)
