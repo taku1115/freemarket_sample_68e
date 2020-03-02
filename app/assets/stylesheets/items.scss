@@ -429,7 +429,7 @@
   &__img {
   width: 220px;
   height: 160px;
-  position: relative;
+  // position: relative;
   overflow: hidden;
   // margin: 0;
   z-index: auto;
@@ -614,11 +614,15 @@ h3.name {
   width: 213px;
   border: solid red;
   text-align: center;
-  position: absolute;
+  position: relative;
   margin-top: 60px;
   background-color: white;
   transform: skew(0deg,-27deg);
   &__text {
+  position: absolute;
+  left: 20px;
+  bottom: -5px;
+  
   color: red;
   font-size: 30px;
   font-weight: bold;
