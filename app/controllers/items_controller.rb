@@ -37,7 +37,8 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @item_images = @item.item_images.limit(8)
+    @item_images = @item.item_images.new
+    
     @parent = @item.category
     @categories = Category.where(ancestry: nil).limit(13)
     render "items/item_edit"
@@ -63,11 +64,11 @@ end
 
   private
   def items_params
-    params.require(:item).permit(:name, :condition_id,:text, :price, :trading_status, :buyer, :saler, :completed_at, shipping_attributes: [:delivery_fee_id, :delivery_handlingtime_id, :prefecture_code], category_attributes: [:name], item_images_attributes: %i[image_url]).merge(saler_id: current_user.id)
+    params.require(:item).permit(:name, :condition_id, :text, :price, :trading_status, :buyer, :saler, :completed_at, shipping_attributes: [:delivery_fee_id, :delivery_handlingtime_id, :prefecture_code], category_attributes: [:name], item_images_attributes: %i[image_url]).merge(saler_id: current_user.id)
   end
 
   def item_update_params
-    params.require(:item).permit(:name,:condition_id,:text, :price, :trading_status, :buyer, :saler, :completed_at,[shipping_attributes:[:delivery_fee_id, :delivery_handlingtime_id, :prefecture_code]],[item_images_attributes:[:image_url,:_destroy,:id]],[category_attributes: [:name]])
+    params.require(:item).permit(:name, :condition_id, :text, :price, :trading_status, :buyer, :saler, :completed_at, shipping_attributes: [:delivery_fee_id, :delivery_handlingtime_id, :prefecture_code], item_images_attributes:[:image_url,:_destroy,:id], category_attributes: [:name]).merge(saler_id: current_user.id)
   end
 
 end
