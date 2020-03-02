@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
   def create
   
     @item = Item.new(items_params)
-    @categories = Categeory.where(ancestry: nil).limit(13)
+    # @categories = Categeory.where(ancestry: nil).limit(13)
     if @item.save
       redirect_to root_path
     else
