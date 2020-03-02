@@ -127,7 +127,7 @@
   - @items.each do|item|
     .productList
       - item.item_images.first(1).each do |image|
-        = image_tag image.image_url.url
+        = link_to image_tag(image.image_url.url),item_path(image)
       - if item["trading_status"] ==0
         .soldout
           .soldout__text SOLD OUT   

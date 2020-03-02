@@ -3,14 +3,14 @@ class ItemsController < ApplicationController
   def index
 
     @items =Item.order("id DESC").limit(4)
-    @item_images = ItemImage.limit(1)
+    @item_images = ItemImage.all
 
     @parents =Category.where(ancestry: nil).limit(13)
   end
 
   def new
     @item = Item.new
-    @item.item_images.limit(1)
+    @item.item_images.new
     @item.build_shipping
     @item.build_category
     @categories = Category.where(ancestry: nil).limit(13)
