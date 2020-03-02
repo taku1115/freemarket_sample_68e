@@ -3,14 +3,14 @@ class ItemsController < ApplicationController
   def index
 
     @items =Item.order("id DESC").limit(4)
-    @item_images = ItemImage.all
+    @item_images = ItemImage.limit(1)
 
     @parents =Category.where(ancestry: nil).limit(13)
   end
 
   def new
     @item = Item.new
-    @item.item_images.new
+    @item.item_images.limit(1)
     @item.build_shipping
     @item.build_category
     @categories = Category.where(ancestry: nil).limit(13)
@@ -19,11 +19,10 @@ class ItemsController < ApplicationController
   def create
   
     @item = Item.new(items_params)
-    # @categories = Categeory.where(ancestry: nil).limit(13)
+    @categories = Categeory.where(ancestry: nil).limit(13)
     if @item.save
       redirect_to root_path
     else
-      # @item.item_images.new
       render :new
     end
 
