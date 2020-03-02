@@ -7,7 +7,7 @@
       %section.buydetails-content__item
         .buydetails-content__inner
           - @item_images.each do |image|
-            = image_tag @item_images[0]["image_url"], size: "100x100", class: "buydetails-content__image"
+            = image_tag image.image_url.url, size: "100x100", class: "buydetails-content__image"
           .buydetails-content__form
             %h1.buydetails-content__item-name#bought-item-name
               = @item.name

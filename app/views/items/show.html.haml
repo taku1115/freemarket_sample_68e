@@ -4,12 +4,13 @@
     .show__top
       = @item.name
     .show__image
-      = image_tag @item_images[0]["image_url"]
+      - @item.item_images.each do |image|
+        = image_tag image.image_url.url
     %br.show__images
       %ul
         %li
-        - @item_images.each do |item|
-          = image_tag(item["image_url"], size:"140x87")
+        - @item.item_images.each do |image|
+          = image_tag(image.image_url.url,  size:"140x87")
     .show__price
       %span
       ¥
