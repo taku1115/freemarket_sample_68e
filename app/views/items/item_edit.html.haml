@@ -1,0 +1,112 @@
+.exhibition
+  .exhibition-header
+    = render 'newhead'
+  .exhibition-main
+    .exhibition-main__wrapper
+      %h1.gorira 商品の編集
+      = form_for @item do |f|
+        = render 'items/error_messages', model: f.object
+        .exhibition-main__image
+          .exhibition-main__image__top
+            %span.font 出品画像 
+            %span.botan 必須
+            %p.max 最大１０枚までアップロード出来ます
+            %p
+            .exhibition-main__image__into__camera
+              %label{class: "input-box__image"}
+                .exhibition-main__image__into__camera__into
+                  .wide
+                    #image-box 
+                      #previews
+                      = f.fields_for :item_images do |item_image|
+                        .js-file_group{"data-index" => "#{item_image.index}"}
+                          = item_image.file_field :image_url, class: 'js-file'
+                          %br/
+                          %span.js-remove 削除
+                        -# - if @item.persisted?
+                        -#   = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                        -# - if @item.persisted?
+                        -#   .js-file_group{"data-index" => "#{@item.images.count}"}
+                        -#     = file_field_tag :image_url, name: "item[item_images_attributes][#{@item.images.count}][src]", class: 'js-file'
+                        -#     .js-remove 削除
+
+
+        .exhibition-main__entry
+          %span.font 商品名
+          %span.botan 必須
+          %p.butween
+          = f.text_field :name, placeholder:"40文字まで",class:"chat-group-form__input",id:"user-search-field",style:"width:96%;padding:10px 16px 8px;font-size: 16px"
+          %p.top
+          %span.font 商品の説明
+          %span.botan 必須
+          %p.butween
+          = f.text_area :text, class:"wide",cols: "60",rows:"6",style:"width:98%",placeholder: "商品の説明（必須1,000文字以内) (色、素材、重さ、定価、注意点など)                                                       例）2010年頃に385万円で購入したものです。まあ買いたければ買ったら? "
+          %p.iine
+        .exhibition-main__details
+          .exhibition-main__details__left
+            %span.title 商品の詳細
+          .exhibition-main__details__right
+            
+            %p
+            %span.font カテゴリー
+            %span.botan 必須
+            %p.top
+            = f.fields_for :category do |category|
+              = category.collection_select(:name, @categories, :name, :name, prompt: "---")
+            %p.bottom
+            
+              %span.font 商品の状態
+              %span.botan 必須
+              %p.top
+              = f.collection_select :condition_id, Condition.all, :id, :name, prompt: "選択して下さい"
+        -# .exhibision-main__shipping
+        -#   = f.fields_for :shipping do |a|
+        -#     .exhibision-main__shipping__left
+        -#     %span 配送について
+        -#     %a.form-question{:href => "/jp/help_center/article/68/", :target => "_blank"} ?
+        -#     %p
+        -#     .exhibision-main__shipping__right
+        -#       %span.font 配送料の負担
+        -#       %span.botan 必須
+        -#       %p.top
+        -#       = a.collection_select :delivery_fee_id, DeliveryFee.all, :id, :name, prompt: "選択して下さい", class: "hutan"
+        -#       %p.bottom
+        -#       %span.font 発送先の地域
+        -#       %span.botan 必須
+        -#       %p.top
+        -#       = a.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, prompt: "---", class: "tiiki"
+              
+        -#       %p.bottom
+        -#       %span.font 発送までの日数
+        -#       %span.botan 必須
+        -#       %p.top
+        -#       = a.collection_select :delivery_handlingtime_id, DeliveryHandlingtime.all, :id, :name, prompt: "---", class: "day"
+        .exhibision-main__price
+          .exhibision-main__price__left
+            %span.value 販売価格  (¥300〜9,999,999)
+            %a.form-question{:href => "/jp/help_center/article/68/", :target => "_blank"} ?
+          .exhibision-main__price__right
+            .exhibision-main__price__right__top
+              .exhibision-main__price__right__font
+                %span.font 価格
+                %span.botan 必須
+              .exhibision-main__price__right__input 
+                %span ¥
+                = f.number_field :price, class:"chat-group-form__input",id:"user-search-field",style:"width:75%;padding:10px 16px 8px;font-size: 16px"
+            .exhibision-main__price__right__commission
+              %span.fee 販売手数料(10%)
+              %span.ten -
+            .exhibision-main__price__right__profit  
+              %span.profit 販売利益
+              %span.hutoten -
+              %p
+        .exhibision-main__footer  
+          %p 禁止されている行為および出品物を必ずご確認ください。
+          %p 偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 
+          %p また、出品をもちまして加盟店規約に同意したことになります。
+          .exhibision-main__footer__center
+            = f.submit "編集する", class:"uru",data:{confirm: "本当に編集しますか？"}
+            %input.back{:type => "submit", :value => "もどる"}/ 
+  .exhibision__bottom
+    = render "newfooter"
+

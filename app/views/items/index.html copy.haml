@@ -1,0 +1,190 @@
+.topHeader
+  .headerInner
+    .mainheader
+      %h1.icon
+        = link_to image_tag("logo.png"),root_path
+      .search-box
+        %form{"accept-charset": "UTF-8", action: "#", method: "get"}
+          %input{name:  "utf8", type: "hidden", value: "✓"}/
+          %input#searchInput.searchBox--input{name: "key", placeholder: "キーワードから探す"}/
+          %button{type: "submit"}
+            .search-item
+              = image_tag 'icon-search 1.png'
+            %input{name: "authenticity_token", type: "hidden", value: "+Z5TWFAnhn4nyERwyq8tGeL24RWLf6d/DXQga++bhRyXAu8YJ5uoGBiBOvHimDNE1x9srYXVjnFOgiOPbUdCzQ=="}/
+
+    %ul.top-nav
+      .listleft
+        %ul.listleft-item1
+          %li.posi
+            = link_to "カテゴリー"
+            %ul.listitem
+              %li
+                - @parents.each do |parent|
+                  = link_to "#{parent.name}",id: "#{parent.id}"
+        .listleft-item2
+        = link_to "ブランド"
+      .listright
+        - if user_signed_in?
+          = link_to "マイページ", user_path(current_user)
+        - else
+          = link_to "ログイン",new_user_session_path(@new_user_session), class: "listright-item1"
+          = link_to "新規会員登録",new_user_registration_path, class: "listright-item2"
+
+.top-main
+  .top-main__visual
+    .top-main__visual__content
+      %h2.top-main__visual__content__title
+        %br/
+        人生を変えるフリマアプリ
+      %p.top-main__visual__content__word
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br/
+        フリマアプリです
+      .top-main__visual__content__button
+        = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class: "apple")
+        = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg",class: "google")
+
+  .top-main__merit
+    .top-main__merit__title 
+      %h2
+        FURIMAが選ばれる3つの理由
+    %ul.top-main__merit__kind
+ 
+      %li.top-main__merit__kind__one
+        .top-main__merit__kind__one__pic
+          %span.top-main__merit__kind__one__pic__number1
+            %p 1
+          = image_tag "pict-reason-01.jpg",class: "phone"
+        %h3.top-main__merit__kind__one__text
+          %span.top-main__merit__kind__one__text__left 3分
+          ですぐに出品
+        %p.top-main__merit__kind__one__text2
+          スマホで入力するだけで簡単に出品できる！
+
+      %li.top-main__merit__kind__one
+        .top-main__merit__kind__one__pic
+          %span.top-main__merit__kind__one__pic__number1
+            %p 2
+          = image_tag "pict-reason-02.jpg",class: "phone"
+        %h3.top-main__merit__kind__one__text
+          %span.top-main__merit__kind__one__text__left シンプル
+          で使いやすい
+        %p.top-main__merit__kind__one__text2
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+
+      %li.top-main__merit__kind__one
+        .top-main__merit__kind__one__pic
+          %span.top-main__merit__kind__one__pic__number1
+            %p 3
+          = image_tag "pict-reason-03.jpg",class: "phone"
+        %h3.top-main__merit__kind__one__text
+          手数料
+          %span.top-main__merit__kind__one__text__left 業界最安
+        %p.top-main__merit__kind__one__text2
+          最大3%でお得に出品&amp;購入！
+
+
+  .top-main__visual2
+    .top-main__visual2__content
+      %h2.top-main__visual2__content__title 会員数日本一位
+      %p.top-main__visual2__content__text 
+        FURIMAは、フリマアプリで最も人気。
+        %br/
+        出品・購入回数も業界最多です！
+        %br/
+        ほしかったあの商品に出会えるかもしれません。
+      .top-main__visual2__content__button
+        = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class: "apple2")
+        = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg",class: "google2")
+
+.character
+.heads FURIMAの特徴
+.convenients
+  .convenient
+    .convenient__img
+      = image_tag "icon-01.png",class: "orz"
+    %h3.convenient__subtitle 簡単に売り買いできる
+    %p.convenient__detail
+      スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+  .convenient
+    .convenient__img
+      = image_tag "icon-03.png",class: "orz"
+    %h3.convenient__subtitle 売上金は即日振込みに対応
+    %p.convenient__detail
+      午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+  .convenient
+    .convenient__img
+      = image_tag "icon-04.png",class: "orz"
+    %h3.convenient__subtitle 様々な支払いに対応
+    %p.convenient__detail
+      お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+.pickupcategory
+  %h2.heads2 ピックアップカテゴリー
+  .productbox
+  .productbox__Head
+    = link_to "新規投稿商品",class:"name" 
+  .productLists
+  - @items.each do|item|
+    .productList
+      - item.item_images.first(1).each do |image|
+        = link_to image_tag(image.image_url.url),item_path(image)
+      - if item["trading_status"] ==0
+        .soldout
+          .soldout__text SOLD OUT   
+      .productList__body
+        %h3.name
+        = item.name
+        .details
+          %ul 
+            %li 
+              = item.price
+            %h5 円
+            %li
+              %i.fa.fa-star.likeIcon (税込)
+            %h6 👍9670
+.top-banner
+  .top-banner__in
+    %h2.top-banner__in__title だれでもかんたん、人生を変えるフリマアプリ
+    %p.top-banner__in__text 今すぐ無料ダウンロード！
+    .top-banner__in__icon
+      = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class: "apple3")
+      = link_to image_tag("https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg",class: "google3")
+
+.footer
+  %ul.contents
+    %li.content
+      %h2.content__head FURIMAについて
+      %ul
+        %li
+          = link_to "会社概要（運営会社)"
+        %li
+          = link_to "プライバシーポリシー"
+        %li
+          = link_to "FURIMA利用規約"
+        %li
+          = link_to "ポイントに関する特約"
+    %li.content
+      %h2.content__head FURIMAを見る
+      %ul
+        %li
+          = link_to "カテゴリー一覧"
+        %li
+          = link_to "ブランド一覧"
+    %li.content
+      %h2.content__head ヘルプ＆ガイド
+      %ul
+        %li
+          = link_to "FURIMAガイド"
+        %li
+          = link_to "FURIMAロゴ利用ガイドライン"
+        %li
+          = link_to "お知らせ"
+  .footer__logo
+    = link_to image_tag("logo-white.png",class: "orz2")
+  %p © FURIMA
+
+
+.exhibision-btn
+  .exhibision-btn__item
+    出品する
+    = link_to image_tag("icon_camera.png", size: "54x54", class: "footer__icon"),new_item_path(@new)
