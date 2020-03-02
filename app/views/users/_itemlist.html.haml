@@ -3,7 +3,7 @@
     .productList
       - item.item_images.first(1).each do |image|
         = link_to image_tag(image.image_url.url,class: "productList__img"),item_path(item)
-      - if item["trading_status"] ==0
+      - if item.trading_status == 0
         .soldout
           .soldout__text SOLD OUT   
       .productList__body

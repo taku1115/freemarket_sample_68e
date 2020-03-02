@@ -4,7 +4,7 @@
     .show__top
       = @item.name
     .show__image
-      - @item.item_images.each do |image|
+      - @item.item_images.first(1).each do |image|
         = image_tag image.image_url.url
     %br.show__images
       %ul
@@ -23,7 +23,7 @@
     .show__details
       %table
         %tr
-          %th 出品者
+          %th 出品
           %td 
             = @item.saler.nickname
         %tr
@@ -50,8 +50,12 @@
       %ul
         %li
           = link_to "★ お気に入り 1", "#", class: "show__option__like"
-        %li
-          = link_to "購入画面に進む", item_purchase_index_path(@item) , class: "show__option__report"
+        - if @item.trading_status == 0
+          %li 
+            %h4.show_status SOLD OUT
+        - else 
+          %li
+            = link_to "購入画面に進む", item_purchase_index_path(@item) , class: "show__option__report"
         %li
         - if user_signed_in? && @item.saler.id == current_user.id
           = link_to "編集"
