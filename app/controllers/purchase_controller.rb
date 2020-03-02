@@ -21,6 +21,7 @@ class PurchaseController < ApplicationController
   
     def pay
       @item = Item.find(params[:item_id])
+      @item.update( trading_status: 0 )
       card = Card.where(user_id: current_user.id).first
       Payjp.api_key =  Rails.application.credentials[:PAYJP_PRIVATE_KEY]
       Payjp::Charge.create(
