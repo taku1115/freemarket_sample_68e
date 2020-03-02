@@ -56,8 +56,13 @@ end
 
   def update
     @item = Item.find(params[:id])
-    @item.update(item_update_params)
-    redirect_to item_path(@item)
+    if @item.update(item_update_params)
+        redirect_to item_path(@item)
+    else
+      redirect_to user_path(current_user)
+      flash[:alert] ='編集に失敗しました'
+    end
+
   end
 
 

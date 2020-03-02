@@ -18,6 +18,8 @@
                   .wide
                     #image-box 
                       #previews
+                      - @item.item_images.each do |image|
+                        = image_tag(image.image_url.url,  size:"140x87")
                       = f.fields_for :item_images do |item_image|
                         .js-file_group{"data-index" => "#{item_image.index}"}
                           = item_image.file_field :image_url, class: 'js-file'
@@ -59,28 +61,28 @@
               %span.botan 必須
               %p.top
               = f.collection_select :condition_id, Condition.all, :id, :name, prompt: "選択して下さい"
-        -# .exhibision-main__shipping
-        -#   = f.fields_for :shipping do |a|
-        -#     .exhibision-main__shipping__left
-        -#     %span 配送について
-        -#     %a.form-question{:href => "/jp/help_center/article/68/", :target => "_blank"} ?
-        -#     %p
-        -#     .exhibision-main__shipping__right
-        -#       %span.font 配送料の負担
-        -#       %span.botan 必須
-        -#       %p.top
-        -#       = a.collection_select :delivery_fee_id, DeliveryFee.all, :id, :name, prompt: "選択して下さい", class: "hutan"
-        -#       %p.bottom
-        -#       %span.font 発送先の地域
-        -#       %span.botan 必須
-        -#       %p.top
-        -#       = a.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, prompt: "---", class: "tiiki"
+        .exhibision-main__shipping
+          = f.fields_for :shipping do |a|
+            .exhibision-main__shipping__left
+            %span 配送について
+            %a.form-question{:href => "/jp/help_center/article/68/", :target => "_blank"} ?
+            %p
+            .exhibision-main__shipping__right
+              %span.font 配送料の負担
+              %span.botan 必須
+              %p.top
+              = a.collection_select :delivery_fee_id, DeliveryFee.all, :id, :name, prompt: "選択して下さい", class: "hutan"
+              %p.bottom
+              %span.font 発送先の地域
+              %span.botan 必須
+              %p.top
+              = a.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, prompt: "---", class: "tiiki"
               
-        -#       %p.bottom
-        -#       %span.font 発送までの日数
-        -#       %span.botan 必須
-        -#       %p.top
-        -#       = a.collection_select :delivery_handlingtime_id, DeliveryHandlingtime.all, :id, :name, prompt: "---", class: "day"
+              %p.bottom
+              %span.font 発送までの日数
+              %span.botan 必須
+              %p.top
+              = a.collection_select :delivery_handlingtime_id, DeliveryHandlingtime.all, :id, :name, prompt: "---", class: "day"
         .exhibision-main__price
           .exhibision-main__price__left
             %span.value 販売価格  (¥300〜9,999,999)
