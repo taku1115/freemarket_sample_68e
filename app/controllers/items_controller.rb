@@ -2,10 +2,10 @@ class ItemsController < ApplicationController
   before_action :move_to_login, except: [:index, :show]
   # before_action :move_to_index, expect: [:index, :show]
   def index
-
     @items =Item.order("id desc").limit(4)
     @item_images = ItemImage.all
     @parents =Category.where(ancestry: nil).limit(13)
+
   end
 
   def new
@@ -20,9 +20,9 @@ class ItemsController < ApplicationController
     @item = Item.create(item_update_params)
     @categories = Category.where(ancestry: nil).limit(13)
     if @item.save
+      #  @item_images.save
       redirect_to root_path
     else
-      @item.item_images.new
       render :new
     end
 
@@ -32,12 +32,15 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item_images = @item.item_images.limit(8)
     @parent = @item.category
-    @shipping = @item.shipping  
+    @shipping = @item.shipping 
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user) 
   end
 
   def edit
     @item = Item.find(params[:id])
     @item_images = @item.item_images.limit(5)
+    @item_images = @item.item_images.new
     @parent = @item.category
     @categories = Category.where(ancestry: nil).limit(13)
     # render "items/item_edit"
