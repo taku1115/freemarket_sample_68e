@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
   
   def index
-
     @items =Item.order("id desc").limit(4)
     @item_images = ItemImage.all
     @parents =Category.where(ancestry: nil).limit(13)
+
   end
 
   def new
@@ -17,12 +17,13 @@ class ItemsController < ApplicationController
   
   def create
 
-    @item = Item.create(items_params)
+    @item = Item.new(items_params)
+    # @item_images = @item.item_images.new
     @categories = Category.where(ancestry: nil).limit(13)
     if @item.save
+      #  @item_images.save
       redirect_to root_path
     else
-      @item.item_images.new
       render :new
     end
 
@@ -40,7 +41,6 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     @item_images = @item.item_images.new
-    
     @parent = @item.category
     @categories = Category.where(ancestry: nil).limit(13)
     render "items/item_edit"
