@@ -69,12 +69,13 @@
           - @comments.each do |comment|
             %p.each-comment
               %span
-                = link_to comment.user.nickname, "/users/#{comment.user_id}"
+                = link_to comment.user.nickname, user_path(comment)
                 = ' : '  
                 = comment.text
                 %span.comment-time
                   = time_ago_in_words(comment.created_at) + '前'
       = form_for [@item, @comment] do |f|
+        = render 'items/error_messages', model: f.object
         = f.text_area :text, class:"show__comments__text", placeholder: "コメントする"
         .show__comments__notice
           相手のことを考え丁寧なコメントをしましょう
