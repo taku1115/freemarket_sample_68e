@@ -53,6 +53,8 @@
         - if @item.trading_status == 0
           %li 
             %h4.show_status SOLD OUT
+        - elsif @item.trading_status == 1 && @item.saler.id == current_user.id
+          %li
         - else 
           %li
             = link_to "購入画面に進む", item_purchase_index_path(@item) , class: "show__option__report"
