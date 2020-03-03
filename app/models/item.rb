@@ -14,4 +14,5 @@ class Item < ApplicationRecord
   belongs_to_active_hash :condition
 
   validates :name, :text, :price, :trading_status, :condition_id, presence: true
+  validates :item_images, presence: true
 end
