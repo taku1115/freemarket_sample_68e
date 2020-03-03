@@ -1,4 +1,7 @@
 class PurchaseController < ApplicationController
+    
+    before_action :move_to_login
+    before_action :move_to_index
 
     require 'payjp'
   
@@ -35,6 +38,16 @@ class PurchaseController < ApplicationController
     def done
       @item = Item.find(params[:item_id])
       @item_images = @item.item_images.limit(1)
+    end
+
+    private 
+    def move_to_index
+      @item = Item.find(params[:item_id])
+      redirect_to root_path if @item.saler.id == current_user.id || @item.trading_status == 0
+    end
+
+    def move_to_login
+      redirect_to user_session_path unless user_signed_in?
     end
   
   end

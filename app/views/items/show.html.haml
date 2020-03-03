@@ -25,7 +25,7 @@
         %tr
           %th 出品者
           %td 
-            = @item.saler.nickname
+            = link_to @item.saler.nickname, user_path(@item.saler)
         %tr
           %th カテゴリー
           %td
@@ -53,8 +53,6 @@
         - if @item.trading_status == 0
           %li 
             %h4.show_status SOLD OUT
-        - elsif @item.trading_status == 1 && @item.saler.id == current_user.id
-          %li
         - else 
           %li
             = link_to "購入画面に進む", item_purchase_index_path(@item) , class: "show__option__report"
@@ -69,7 +67,7 @@
           - @comments.each do |comment|
             %p.each-comment
               %span
-                = link_to comment.user.nickname, user_path(comment)
+                = link_to comment.user.nickname, user_path(comment.user)
                 = ' : '  
                 = comment.text
                 %span.comment-time
