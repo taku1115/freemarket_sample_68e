@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  
+  before_action :move_to_login, except: [:index, :show]
+  # before_action :move_to_index, expect: [:index, :show]
   def index
     @items =Item.order("id desc").limit(4)
     @item_images = ItemImage.all
@@ -16,9 +17,7 @@ class ItemsController < ApplicationController
   end
   
   def create
-
-    @item = Item.new(items_params)
-    # @item_images = @item.item_images.new
+    @item = Item.create(item_update_params)
     @categories = Category.where(ancestry: nil).limit(13)
     if @item.save
       #  @item_images.save
@@ -40,10 +39,14 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @item_images = @item.item_images.limit(5)
     @item_images = @item.item_images.new
     @parent = @item.category
     @categories = Category.where(ancestry: nil).limit(13)
-    render "items/item_edit"
+    # render "items/item_edit"
+    unless current_user.id == @item.saler.id
+      redirect_to root_path
+    end
   end
 
   def destroy
@@ -54,7 +57,7 @@ class ItemsController < ApplicationController
     else
       redirect_to item_path(@item)
       flash[:alert] ='削除に失敗しました'
-  end
+    end
 end
 
   def update
@@ -73,4 +76,9 @@ end
     params.require(:item).permit(:name, :condition_id, :text, :price, :trading_status, :buyer, :saler, :completed_at, shipping_attributes: [:delivery_fee_id, :delivery_handlingtime_id, :prefecture_code], item_images_attributes:[:image_url,:_destroy,:id], category_attributes: [:name]).merge(saler_id: current_user.id)
   end
 
+  def move_to_login
+    redirect_to user_session_path unless user_signed_in?
+  end
+
+  
 end
