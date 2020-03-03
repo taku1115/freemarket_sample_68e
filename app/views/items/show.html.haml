@@ -75,6 +75,7 @@
                 %span.comment-time
                   = time_ago_in_words(comment.created_at) + '前'
       = form_for [@item, @comment] do |f|
+        = h(flash[:notice])
         = render 'items/error_messages', model: f.object
         = f.text_area :text, class:"show__comments__text", placeholder: "コメントする"
         .show__comments__notice
