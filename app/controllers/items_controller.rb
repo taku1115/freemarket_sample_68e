@@ -32,7 +32,9 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item_images = @item.item_images.limit(8)
     @parent = @item.category
-    @shipping = @item.shipping  
+    @shipping = @item.shipping 
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user) 
   end
 
   def edit

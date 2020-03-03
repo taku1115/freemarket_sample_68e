@@ -1,0 +1,15 @@
+.shows {
+  .show {
+    &__comments {
+      .each-comment {
+        margin-bottom: 20px;
+        .comment-time{
+          font-size: 14px;
+          display: block;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
