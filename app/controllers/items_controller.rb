@@ -37,8 +37,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @item_images = @item.item_images.new
-    
+    @item_images = @item.item_images.limit(5)
     @parent = @item.category
     @categories = Category.where(ancestry: nil).limit(13)
     render "items/item_edit"
