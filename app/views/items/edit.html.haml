@@ -2,7 +2,7 @@
 = render 'newhead'
 .EXhibition
   %section.EXhibision-main
-    = form_with model:@item, local:true do |f|
+    = form_for @item do |f|
       .EXhibision-title
         商品の編集
       .EXhibision-header
@@ -24,18 +24,17 @@
                         %span 削除
             .label-content
               //プレビューの数に合わせてforオプションを指定
-              = f.label :"images_attributes_#{@item.item_images.length}_image", class: "label-box", id: "label-box--#{@item.item_images.length}" do
+              = f.label :"item_images_attributes_#{@item.item_images.length}_image", class: "label-box", id: "label-box--#{@item.item_images.length}" do
                 %pre.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
               = f.fields_for :item_images do |i|
                 //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
-                = i.file_field :image_URL, class: "hidden-field"
+                = i.file_field :image_url, class: "hidden-field"
                 = i.check_box:_destroy, class: "hidden-checkbox"
                 //5つのfile_fieldを準備するに当たって、足りない分を表示
               - @item.item_images.length.upto(4) do |i|
-                %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+                %input{name: "item[item_images_attributes][#{i}][image_url]", id: "item_images_attributes_#{i}_image_url", class:"hidden-field", type:"file"}
         .EXsell__block__form__name
-          .exhibition-main__entry
           %span.font 商品名
           %span.botan 必須
           %p.butween
