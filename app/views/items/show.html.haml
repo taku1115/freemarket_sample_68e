@@ -25,7 +25,7 @@
         %tr
           %th 出品者
           %td 
-            = @item.saler.nickname
+            = link_to @item.saler.nickname, user_path(@item.saler)
         %tr
           %th カテゴリー
           %td
@@ -60,15 +60,29 @@
         - if user_signed_in? && @item.saler.id == current_user.id
           = link_to "編集",edit_item_path
           = link_to "削除" ,item_path(@item) ,data:{confirm: "本当に削除しますか？"},method: :delete 
-  .show__comments
-    %textarea.show__comments__text
-    .show__comments__notice
-      相手のことを考え丁寧なコメントをしましょう
-      %br
-      不快な言葉遣いなどは利用制限や退会処分となることがあります。
-    .show__comments__btn 
-      %button.show__comments__btn__i
-        コメントする
+  - if current_user
+    .show__comments
+      .show__comments-index
+        -if @comments
+          - @comments.each do |comment|
+            %p.each-comment
+              %span
+                = link_to comment.user.nickname, user_path(comment.user)
+                = ' : '  
+                = comment.text
+                %span.comment-time
+                  = time_ago_in_words(comment.created_at) + '前'
+      = form_for [@item, @comment] do |f|
+        = h(flash[:notice])
+        = render 'items/error_messages', model: f.object
+        = f.text_area :text, class:"show__comments__text", placeholder: "コメントする"
+        .show__comments__notice
+          相手のことを考え丁寧なコメントをしましょう
+          %br
+          不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        .show__comments__btn 
+          = f.submit "コメントする", class:"show__comments__btn__i"
+
   .show__bottom
     .show__bottom__next
       = link_to "<前の商品", root_path, class: "show__bottom__next__left"
