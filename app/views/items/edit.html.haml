@@ -32,6 +32,18 @@
                         = i.check_box:_destroy, class: "hidden-checkbox"
             .label-content
               //プレビューの数に合わせてforオプションを指定
+              %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+                %pre.label-box__text-visible クリックしてファイルをアップロード
+            .hidden-content
+              = f.fields_for :item_images do |image|
+                = image.file_field :image_url, class: "hidden-field"
+                %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][0][image_url]", id: "item_images_attributes_0_image" }
+                %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][1][image_url]", id: "item_images_attributes_1_image" }
+                %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][2][image_url]", id: "item_images_attributes_2_image" }
+                %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][3][image_url]", id: "item_images_attributes_3_image" }
+                %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][4][image_url]", id: "item_images_attributes_4_image" }
+
+              //プレビューの数に合わせてforオプションを指定
               -# = f.label :"item_images_attributes_#{@item.item_images.length}_image", class: "label-box", id: "label-box--#{@item.item_images.length}" do
               -#   %pre.label-box__text-visible クリックしてファイルをアップロード
             -# .hidden-content
@@ -40,8 +52,8 @@
                 -# = i.file_field :image_url, class: "hidden-field"
                 -# = i.check_box:_destroy, class: "hidden-checkbox"
                 //5つのfile_fieldを準備するに当たって、足りない分を表示
-            - @item.item_images.length.upto(0) do |i|
-              %input{name: "item[item_images_attributes][#{i}][image_url]", id: "item_images_attributes_#{i}_image_url", class:"hidden-field", type:"file"}
+            -# - @item.item_images.length.upto(0) do |i|
+            -#   %input{name: "item[item_images_attributes][#{i}][image_url]", id: "item_images_attributes_#{i}_image_url", class:"hidden-field", type:"file"}
         .EXsell__block__form__name
           %span.font 商品名
           %span.botan 必須
