@@ -14,10 +14,10 @@
           .post__drop__box__container
             .prev-content
               //JSで挿入したhtmlと同じ形each文でのプレビュー表示
-              - @item.item_images.each_with_index do |image|
+              - @item.item_images.each_with_index do |image, i|
                 .preview-box
                   .upper-box
-                    = image_tag(image.image_url.url, width: "112", height: "112", alt: "preview")
+                    = image_tag(image.image_url.url, width: "112", height: "112", alt: "preview", date:{index:i})
               
               %label(for="edit-or-destroy__btn")
                 .lower-box#edit-or-destroy__btn
