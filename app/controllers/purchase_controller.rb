@@ -1,7 +1,7 @@
 class PurchaseController < ApplicationController
     
     before_action :move_to_login
-    before_action :move_to_index
+    before_action :move_to_index, except: :done
 
     require 'payjp'
   
