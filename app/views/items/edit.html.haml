@@ -36,7 +36,7 @@
                 %label.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
               - @item.item_images.length.upto(4) do |i|
-                %input{name: "[item_images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+                %input{name: "item[item_images_attributes][#{i}][image_url]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
                
         .EXsell__block__form__name
           %span.font 商品名
