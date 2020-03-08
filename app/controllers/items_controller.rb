@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_login, except: [:index, :show]
-  # before_action :move_to_index, expect: [:index, :show]
+
   def index
     @items =Item.order("id desc").limit(4)
     @item_images = ItemImage.all
@@ -42,7 +42,6 @@ class ItemsController < ApplicationController
     @item_images = @item.item_images.limit(5)
     @parent = @item.category
     @categories = Category.where(ancestry: nil).limit(13)
-    # render "items/item_edit"
     unless current_user.id == @item.saler.id
       redirect_to root_path
     end
